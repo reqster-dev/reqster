@@ -437,6 +437,11 @@ connector'a değil isteğin `AsyncLocalStorage` bağlamına bağlanır (`withPro
   istekte (`ExecuteInput.body`) aynı yolla varsa okunur; pre-request script'i `rq.request.body` ile dosya satırı ekleyemez ya da
   yolunu değiştiremez (`execute.formFileFromScript`), yol `{{değişken}}` ile çözülmez — aksi halde içe aktarılan bir koleksiyonun
   script'i diskteki dosyaları dışarı gönderebilirdi (koruma kapatılarak sızma gösterildi, açıkken reddedildi).
+- **Yanıt kodlaması + XML güzelleştirme** (2026-11-23): `engine/bodyDecode.ts` `decodeBody` yanıt gövdesini BOM →
+  `Content-Type` `charset` → içerikteki bildirim (XML bildirimi, HTML meta) → UTF-8 sırasıyla çözer; baytlar UTF-8'e
+  uymuyorsa istek diline göre windows-1254 (tr) / windows-1252'ye düşer. Ana istek ve `rq.sendRequest` aynı yolu kullanır;
+  UTF-8 dışıysa `ExecuteResult.charset` döner (yanıtta rozet). `formatXml` yalnızca metin içeren öğeyi tek satırda tutar
+  ve metnine dokunmaz (Beautify gönderilen değere boşluk eklemez). Yanıt gövdesinde Düzenli / Ham görünüm seçici.
 - **Üst bar sadeleştirmesi** (2026-11-13): "+ Yeni istek" kalktı (sekme + / Alt+T), ortam seçici + Ortamlar
   tek menü (Ortam yok / ortamlar / Ortamlar… / Değişkenler…), Ayarlar yalnızca simge, İçe aktar menüsü (Dosyadan… /
   Postman'dan çek…).

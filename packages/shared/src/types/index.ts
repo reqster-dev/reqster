@@ -205,6 +205,8 @@ export interface ExecuteResult {
   sizeBytes: number;
   durationMs: number;
   truncated: boolean;
+  /** Gövde UTF-8 dışında bir kodlamayla çözüldüyse o kodlamanın adı (`windows-1254`…) */
+  charset?: string;
   error?: string;
   resolvedUrl: string;
   unresolvedVariables: string[];

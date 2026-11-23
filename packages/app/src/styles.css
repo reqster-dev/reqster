@@ -477,6 +477,32 @@ button:focus-visible {
   border-bottom-color: var(--accent);
 }
 
+/* Sekme satırının sağında ikili görünüm seçici (yanıt gövdesi: Düzenli / Ham) */
+.view-toggle {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.view-toggle button {
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.view-toggle button:hover {
+  color: var(--text);
+  background: var(--hover);
+}
+
+.view-toggle button.active {
+  color: var(--accent);
+  background: var(--hover);
+}
+
 /* --- Butonlar --- */
 .ghost-btn {
   display: inline-flex;

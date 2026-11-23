@@ -37,6 +37,8 @@ export function ResponseViewer() {
   const response = useAppStore((s) => selectActiveTab(s).response);
   const executingSince = useAppStore((s) => selectActiveTab(s).executingSince);
   const [tab, setTab] = useState<Tab>('body');
+  // Ham: sunucunun gönderdiği metin, yeniden biçimlendirilmeden
+  const [rawView, setRawView] = useState(false);
   const t = useT();
 
   const contentType = response?.headers.find(([k]) => k.toLowerCase() === 'content-type')?.[1];
@@ -98,6 +100,11 @@ export function ResponseViewer() {
         )}
         {!response.scriptError && <span className="meta-item">{formatSize(response.sizeBytes)}</span>}
         {response.truncated && <span className="meta-item warn">{t('response.truncated')}</span>}
+        {response.charset && (
+          <span className="meta-badge" title={t('response.charset.title', { charset: response.charset })}>
+            {response.charset}
+          </span>
+        )}
         {response.tlsVerified === false && (
           <span className="meta-item warn" title={t('response.tlsOff.title')}>
             {t('response.tlsOff')}
@@ -131,6 +138,21 @@ export function ResponseViewer() {
         <button className={`tab ${tab === 'tests' ? 'active' : ''}`} onClick={() => setTab('tests')}>
           {t('response.tab.tests')} {response.testResults.length > 0 && `(${response.testResults.length - failedTests}/${response.testResults.length})`}
         </button>
+        {tab === 'body' && !response.error && (
+          <div className="view-toggle" role="group" aria-label={t('response.view.label')}>
+            <button className={rawView ? '' : 'active'} aria-pressed={!rawView} onClick={() => setRawView(false)}>
+              {t('response.view.pretty')}
+            </button>
+            <button
+              className={rawView ? 'active' : ''}
+              aria-pressed={rawView}
+              onClick={() => setRawView(true)}
+              title={t('response.view.raw.title')}
+            >
+              {t('response.view.raw')}
+            </button>
+          </div>
+        )}
       </div>
 
       {tab === 'body' &&
@@ -139,7 +161,7 @@ export function ResponseViewer() {
         ) : (
           <CodeEditor
             className="response-body-editor"
-            value={prettyBody}
+            value={rawView ? response.body : prettyBody}
             language={language}
             readOnly
             minHeightPx={60}

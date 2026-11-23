@@ -2,6 +2,7 @@ import { type Dispatcher, request as undiciRequest } from 'undici';
 import { getSetting } from '../db/repositories/settings.js';
 import { msg } from '../i18n/context.js';
 import { SCRIPT_HTTP_MAX_BODY_BYTES, type ScriptHttpRequest, type ScriptHttpResponse } from '../scripting/protocol.js';
+import { contentTypeOf, decodeBody } from './bodyDecode.js';
 import { createDispatcherFor, describeProxyError, sendWithStaleRetry } from './dispatcher.js';
 import { TimingProbe } from './timing.js';
 
@@ -66,10 +67,11 @@ export async function sendScriptHttpRequest(
         if (size > SCRIPT_HTTP_MAX_BODY_BYTES) truncated = true;
       }
     }
+    const headers = flattenHeaders(res.headers);
     return {
       status: res.statusCode,
-      headers: flattenHeaders(res.headers),
-      body: Buffer.concat(chunks).subarray(0, SCRIPT_HTTP_MAX_BODY_BYTES).toString('utf8'),
+      headers,
+      body: decodeBody(Buffer.concat(chunks).subarray(0, SCRIPT_HTTP_MAX_BODY_BYTES), contentTypeOf(headers), truncated).text,
       truncated,
       durationMs: Date.now() - startedAt,
     };

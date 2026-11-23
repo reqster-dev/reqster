@@ -19,6 +19,7 @@ import { getRequest } from '../db/repositories/requests.js';
 import { getSetting } from '../db/repositories/settings.js';
 import { getDefaultWorkspace } from '../db/repositories/workspaces.js';
 import { msg } from '../i18n/context.js';
+import { contentTypeOf, decodeBody } from './bodyDecode.js';
 import { createContext, interpolate, maskSecrets } from './interpolate.js';
 import { createDispatcherFor, describeProxyError, isStaleSocketError, sendWithStaleRetry } from './dispatcher.js';
 import { flattenHeaders } from './scriptHttp.js';
@@ -265,6 +266,7 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
   let status: number | undefined;
   let responseHeaders: Array<[string, string]> = [];
   let responseBody = '';
+  let charset: string | undefined;
   let sizeBytes = 0;
   let truncated = false;
   let errorMessage: string | undefined;
@@ -307,7 +309,9 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
       }
     }
     probe.endAt = now();
-    responseBody = Buffer.concat(chunks).subarray(0, maxBodyBytes).toString('utf8');
+    const decoded = decodeBody(Buffer.concat(chunks).subarray(0, maxBodyBytes), contentTypeOf(responseHeaders), truncated);
+    responseBody = decoded.text;
+    charset = decoded.charset;
   } catch (err) {
     const raw = err instanceof Error ? err.message : String(err);
     errorMessage = signal?.aborted
@@ -389,6 +393,7 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
     sizeBytes,
     durationMs,
     truncated,
+    ...(charset && charset !== 'utf-8' ? { charset } : {}),
     error: errorMessage,
     resolvedUrl: url.toString(),
     unresolvedVariables: [...ctx.unresolved],

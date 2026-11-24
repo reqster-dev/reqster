@@ -35,6 +35,8 @@ export const tr = {
   'shortcuts.or': 'ya da',
   'shortcuts.note':
     "macOS'ta Ctrl yerine Cmd de kullanılabilir. Ctrl+T / Ctrl+W tarayıcıya ayrılı olduğu için sekme kısayolları Alt ile çalışır.",
+  'shortcuts.noteDesktop':
+    "macOS'ta Ctrl yerine Cmd de kullanılabilir (Cmd+W pencereyi kapatır; sekme için Ctrl+W). Alt+T / Alt+W de çalışır.",
   'shortcuts.send': 'İsteği gönder (editör içinden de)',
   'shortcuts.save': 'Kaydet',
   'shortcuts.saveAs': 'Farklı kaydet',
@@ -364,8 +366,8 @@ export const tr = {
 
   // Sekme çubuğu
   'tabs.unsaved': '(kayıtsız)',
-  'tabs.close': 'Sekmeyi kapat (aktif sekme: Alt+W)',
-  'tabs.new': 'Yeni sekme, geçici istek (Alt+T)',
+  'tabs.close': 'Sekmeyi kapat (aktif sekme: {keys})',
+  'tabs.new': 'Yeni sekme, geçici istek ({keys})',
   'tabs.closeConfirm.title': 'Sekmeyi kapat',
   'tabs.closeConfirm.message': '"{name}" kaydedilmemiş değişiklikler içeriyor; yine de kapatılsın mı?',
 

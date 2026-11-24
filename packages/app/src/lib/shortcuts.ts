@@ -4,11 +4,13 @@
  * kendi Mod-Enter bağı devreye girmez) ve tarayıcı varsayılanı (Ctrl+S kaydet diyaloğu)
  * `preventDefault` ile engellenir.
  *
- * Sekme kısayolları Alt+T / Alt+W'dir: Ctrl+T / Ctrl+W tarayıcıya ayrılıdır, sayfa bunları
- * yakalayamaz. Tauri penceresine geçildiğinde (v1.0.0) Postman'daki gibi Ctrl+T / Ctrl+W
- * olacak; o zaman yalnızca `matches` içindeki tanımlar değişir.
+ * Sekme kısayolları: masaüstü kabuğunda Postman'daki gibi Ctrl+T / Ctrl+W (Alt+T / Alt+W de
+ * çalışmaya devam eder); tarayıcıda yalnızca Alt+T / Alt+W, çünkü Ctrl+T / Ctrl+W tarayıcıya
+ * ayrılıdır ve sayfa bunları yakalayamaz. Kabukta tarayıcıya özgü kısayolların (yenile, geri,
+ * yazdır…) bastırılması ayrı iştir: `lib/desktopGuard.ts`.
  */
 
+import { isDesktopShell } from './download';
 import type { MessageKey } from './i18n';
 
 export type ShortcutId = 'send' | 'save' | 'saveAs' | 'newTab' | 'closeTab' | 'help';
@@ -21,12 +23,17 @@ export interface ShortcutInfo {
   labelKey: MessageKey;
 }
 
+/** Sekme kısayollarının kullanıcıya gösterilen değiştirici tuşu */
+const TAB_MOD = isDesktopShell() ? 'Ctrl' : 'Alt';
+export const NEW_TAB_KEYS = `${TAB_MOD}+T`;
+export const CLOSE_TAB_KEYS = `${TAB_MOD}+W`;
+
 export const SHORTCUTS: ShortcutInfo[] = [
   { id: 'send', keys: ['Ctrl+Enter'], labelKey: 'shortcuts.send' },
   { id: 'save', keys: ['Ctrl+S'], labelKey: 'shortcuts.save' },
   { id: 'saveAs', keys: ['Ctrl+Shift+S'], labelKey: 'shortcuts.saveAs' },
-  { id: 'newTab', keys: ['Alt+T'], labelKey: 'shortcuts.newTab' },
-  { id: 'closeTab', keys: ['Alt+W'], labelKey: 'shortcuts.closeTab' },
+  { id: 'newTab', keys: [NEW_TAB_KEYS], labelKey: 'shortcuts.newTab' },
+  { id: 'closeTab', keys: [CLOSE_TAB_KEYS], labelKey: 'shortcuts.closeTab' },
   { id: 'help', keys: ['Ctrl+/', '?'], labelKey: 'shortcuts.help' },
 ];
 
@@ -54,6 +61,8 @@ function matches(e: KeyboardEvent): ShortcutId | null {
   if (mod && !e.altKey && isLetter(e, 's')) return e.shiftKey ? 'saveAs' : 'save';
   if (e.altKey && !mod && !e.shiftKey && isLetter(e, 't')) return 'newTab';
   if (e.altKey && !mod && !e.shiftKey && isLetter(e, 'w')) return 'closeTab';
+  if (isDesktopShell() && mod && !e.altKey && !e.shiftKey && isLetter(e, 't')) return 'newTab';
+  if (isDesktopShell() && mod && !e.altKey && !e.shiftKey && isLetter(e, 'w')) return 'closeTab';
   if (mod && !e.altKey && (e.key === '/' || e.code === 'Slash')) return 'help';
   if (!mod && !e.altKey && e.key === '?' && !isEditableTarget(e.target)) return 'help';
   return null;
@@ -61,7 +70,8 @@ function matches(e: KeyboardEvent): ShortcutId | null {
 
 /**
  * Dinleyiciyi kurar, kaldırma fonksiyonunu döner. `isBlocked` true dönerken (bir diyalog/modal
- * açıkken) kısayollar yok sayılır; yalnızca Ctrl+S'nin tarayıcı diyaloğu yine engellenir.
+ * açıkken) kısayollar yok sayılır; yalnızca Ctrl+S'nin tarayıcı diyaloğu yine engellenir
+ * (kabukta hepsinin varsayılanı engellenir).
  */
 export function installShortcuts(actions: ShortcutActions, isBlocked: () => boolean): () => void {
   const onKeyDown = (e: KeyboardEvent) => {
@@ -69,7 +79,7 @@ export function installShortcuts(actions: ShortcutActions, isBlocked: () => bool
     const id = matches(e);
     if (!id) return;
     if (isBlocked()) {
-      if (id === 'save' || id === 'saveAs') e.preventDefault();
+      if (id === 'save' || id === 'saveAs' || isDesktopShell()) e.preventDefault();
       return;
     }
     e.preventDefault();

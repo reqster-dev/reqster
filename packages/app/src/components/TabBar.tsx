@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import { useT } from '../lib/i18n';
 import { iconProps } from '../lib/icons';
+import { CLOSE_TAB_KEYS, NEW_TAB_KEYS } from '../lib/shortcuts';
 import { useAppStore } from '../stores/appStore';
 
 export function TabBar() {
@@ -61,7 +62,7 @@ export function TabBar() {
             {tab.dirty && <span className="tabbar-dirty" title={t('common.unsavedChanges')} />}
             <button
               className="icon-btn"
-              title={t('tabs.close')}
+              title={t('tabs.close', { keys: CLOSE_TAB_KEYS })}
               onClick={(e) => {
                 e.stopPropagation();
                 void closeTab(tab.id);
@@ -72,7 +73,7 @@ export function TabBar() {
           </div>
         );
       })}
-      <button className="tabbar-new" title={t('tabs.new')} onClick={() => newTab()}>
+      <button className="tabbar-new" title={t('tabs.new', { keys: NEW_TAB_KEYS })} onClick={() => newTab()}>
         <Plus {...iconProps} />
       </button>
     </div>

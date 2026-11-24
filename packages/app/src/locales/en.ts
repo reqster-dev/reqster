@@ -30,6 +30,8 @@ export const en: Record<MessageKey, string> = {
   'shortcuts.or': 'or',
   'shortcuts.note':
     'On macOS, Cmd works in place of Ctrl. Ctrl+T / Ctrl+W are reserved by the browser, so tab shortcuts use Alt.',
+  'shortcuts.noteDesktop':
+    'On macOS, Cmd works in place of Ctrl (Cmd+W closes the window; use Ctrl+W for the tab). Alt+T / Alt+W work too.',
   'shortcuts.send': 'Send request (also from inside the editor)',
   'shortcuts.save': 'Save',
   'shortcuts.saveAs': 'Save as',
@@ -343,8 +345,8 @@ export const en: Record<MessageKey, string> = {
   'history.yesterday': 'Yesterday',
 
   'tabs.unsaved': '(unsaved)',
-  'tabs.close': 'Close tab (active tab: Alt+W)',
-  'tabs.new': 'New tab, scratch request (Alt+T)',
+  'tabs.close': 'Close tab (active tab: {keys})',
+  'tabs.new': 'New tab, scratch request ({keys})',
   'tabs.closeConfirm.title': 'Close tab',
   'tabs.closeConfirm.message': '"{name}" has unsaved changes; close it anyway?',
 

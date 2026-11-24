@@ -444,7 +444,12 @@ connector'a değil isteğin `AsyncLocalStorage` bağlamına bağlanır (`withPro
   uymuyorsa istek diline göre windows-1254 (tr) / windows-1252'ye düşer. Ana istek ve `rq.sendRequest` aynı yolu kullanır;
   UTF-8 dışıysa `ExecuteResult.charset` döner (yanıtta rozet). `formatXml` yalnızca metin içeren öğeyi tek satırda tutar
   ve metnine dokunmaz (Beautify gönderilen değere boşluk eklemez). Yanıt gövdesinde Düzenli / Ham görünüm seçici.
-- **Üst bar sadeleştirmesi** (2026-11-13): "+ Yeni istek" kalktı (sekme + / Alt+T), ortam seçici + Ortamlar
+- **Masaüstünde tarayıcı davranışı bastırılır** (2026-11-24): `lib/desktopGuard.ts` yalnızca kabukta (`isDesktopShell()`)
+  yenile (Ctrl+R/F5), geri/ileri (Alt+ok, fare yan düğmeleri), yazdır, sayfada bul (kod editörü dışında), kaynağı gör gibi
+  WebView kısayollarını ve metin girdisi/editör dışındaki sağ tık menüsünü `preventDefault` eder; tarayıcı modunda dokunmaz.
+  Sekme kısayolları kabukta Ctrl+T / Ctrl+W (Alt+T / Alt+W de çalışır), tarayıcıda yalnızca Alt (`lib/shortcuts.ts`;
+  ipuçları `NEW_TAB_KEYS`/`CLOSE_TAB_KEYS`). Yeni bir tarayıcı kısayolu sızarsa `isBrowserShortcut`'a eklenir.
+- **Üst bar sadeleştirmesi** (2026-11-13): "+ Yeni istek" kalktı (sekme + / kabukta Ctrl+T, tarayıcıda Alt+T), ortam seçici + Ortamlar
   tek menü (Ortam yok / ortamlar / Ortamlar… / Değişkenler…), Ayarlar yalnızca simge, İçe aktar menüsü (Dosyadan… /
   Postman'dan çek…).
 

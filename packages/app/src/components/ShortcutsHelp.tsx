@@ -1,3 +1,4 @@
+import { isDesktopShell } from '../lib/download';
 import { useT } from '../lib/i18n';
 import { SHORTCUTS } from '../lib/shortcuts';
 import { dialog } from '../stores/dialogStore';
@@ -35,7 +36,7 @@ function ShortcutsHelpBody({ close }: { close: () => void }) {
             ))}
           </tbody>
         </table>
-        <p className="hint shortcuts-note">{t('shortcuts.note')}</p>
+        <p className="hint shortcuts-note">{t(isDesktopShell() ? 'shortcuts.noteDesktop' : 'shortcuts.note')}</p>
       </div>
       <div className="modal-footer">
         <button className="send-btn" data-autofocus onClick={() => close()}>

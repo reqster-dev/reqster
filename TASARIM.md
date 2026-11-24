@@ -4,8 +4,8 @@
 > Bu doküman fonksiyonel kod içermez; yalnızca mimari kuralları, veri şemasını ve best-practice'leri tanımlar.
 >
 > **Ad:** *Reqster = request + tester*; 1.0.0-rc.20'ye kadar adı **Reqly**'ydi. Ad değişikliği kullanıcı verisini ve
-> alışkanlıklarını kırmaz: uygulama kimliği (`tr.talhacigdem.reqly`) ve dolayısıyla veri klasörü ile güncelleme zinciri
-> aynı kalır, eski veritabanı dosyası, `REQLY_*` ortam değişkenleri ve `reqly-bundle` paketleri tanınır, script API'si
+> alışkanlıklarını kırmaz: uygulama kimliği (`tr.talhacigdem.reqly`) ve dolayısıyla güncelleme zinciri aynı kalır (veri klasörü
+> 1.0.0-rc.27'de taşınmadan `%APPDATA%\Reqster` oldu; 1.0.0 öncesi olduğu için eski klasördeki veri aktarılmaz), eski veritabanı dosyası, `REQLY_*` ortam değişkenleri ve `reqly-bundle` paketleri tanınır, script API'si
 > (`rq.*`, `pm.*`) değişmez.
 
 ---

@@ -6,6 +6,7 @@
 //! sidecar'ın sunduğu harici URL'yi yükler. Sözleşme: scratchpad `tauri-protokol.md` §1–3.
 
 use std::collections::{HashMap, VecDeque};
+use std::path::PathBuf;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::thread;
@@ -75,10 +76,10 @@ pub fn run() {
         .setup(|app| {
             update::mark_start(); // açılış ekranının en az görünme süresi buradan sayılır
             let handle = app.handle().clone();
-            // Kabuk logu: stderr + app_data_dir/logs/shell.log (Windows'ta tek teşhis kaynağı)
-            match app.path().app_data_dir() {
+            // Kabuk logu: stderr + <veri klasörü>/logs/shell.log (Windows'ta tek teşhis kaynağı)
+            match user_data_dir(&handle) {
                 Ok(dir) => logging::init(dir.join("logs"), app.package_info().version.to_string().as_str()),
-                Err(err) => crate::rlog!("[reqster] app_data_dir çözülemedi, dosya logu yok: {err}"),
+                Err(err) => crate::rlog!("[reqster] veri klasörü çözülemedi, dosya logu yok: {err}"),
             }
 
             // macOS: eski `Reqly.app` paketi `Reqster.app` olur ve uygulama yeni yoldan yeniden açılır
@@ -129,10 +130,17 @@ pub fn run() {
         });
 }
 
+/// Kullanıcı verisinin (veritabanı, loglar) klasörü: Windows `%APPDATA%\Reqster`, macOS
+/// `~/Library/Application Support/Reqster`, Linux `~/.local/share/Reqster`. Uygulama kimliğinden
+/// (`app_data_dir`) bilerek bağımsızdır: kimlik eski adı taşır ve updater zinciri için değişmez.
+fn user_data_dir(app: &AppHandle) -> tauri::Result<PathBuf> {
+    Ok(app.path().data_dir()?.join("Reqster"))
+}
+
 /// Sidecar'ı sözleşme §1'deki ortam değişkenleriyle başlatır ve olay döngüsünü kurar.
 fn start_sidecar(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
     let resources_dir = app.path().resource_dir()?.join("resources");
-    let data_dir = app.path().app_data_dir()?;
+    let data_dir = user_data_dir(app)?;
     std::fs::create_dir_all(&data_dir)?;
 
     let mut envs: HashMap<String, String> = HashMap::new();

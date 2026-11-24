@@ -1,4 +1,4 @@
-//! Kabuk logu: her satır stderr'e VE `<app_data_dir>/logs/shell.log` dosyasına yazılır.
+//! Kabuk logu: her satır stderr'e VE `<veri klasörü>/logs/shell.log` dosyasına yazılır.
 //! Windows'ta GUI uygulamasının stderr'i görünmez; kullanıcı çökme/kapanma teşhisi için bu dosyayı
 //! gönderir. Panik kancası da buraya yazar: `panic = "abort"` profilinde süreç hemen öldüğü için
 //! Olay Görüntüleyicisi'nde iz kalmayabiliyor, dosyada kalır. Dosya 1 MB'ı aşınca `shell.1.log` olarak

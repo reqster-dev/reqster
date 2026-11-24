@@ -9,7 +9,7 @@ Nihai hedef: telemetrisiz/hesapsız/bulutsuz, tek SQLite dosyasında yaşayan, P
 koleksiyonlarını içe aktarabilen ve sonunda Tauri ile paketlenecek bir masaüstü API istemcisi.
 
 **Ad değişikliği (1.0.0-rc.20):** eski adı **Reqly**'ydi (başka projelerle çakıştı). Bilerek ESKİ adla kalanlar:
-uygulama kimliği `tr.talhacigdem.reqly` (veri klasörü + updater zinciri), eski site adresi `reqly.talhacigdem.tr` updater'da
+uygulama kimliği `tr.talhacigdem.reqly` (updater zinciri + WebView2 önbelleği; veri klasörü rc.27'de kimlikten ayrıldı, aşağıda), eski site adresi `reqly.talhacigdem.tr` updater'da
 yedek endpoint olarak (rc.19 ve öncesi yalnızca ona bakar; site iki adresten de aynı içeriği sunar), `reqly-wordmark.svg` (yeni wordmark çizilene kadar). Geri uyum: `REQLY_*` ortam değişkenleri
 `server/src/envCompat.ts` (+ başlatıcıdaki eşi) ile `REQSTER_*`'a kopyalanır; `reqly.db` açılışta `reqster.db`'ye taşınır
 (`db/connection.ts`); `reqly-bundle` paketleri içe alınır (`shared` `isBundleFormat`); Windows kurulumu eski "Reqly" kaydını
@@ -36,7 +36,9 @@ npm run start             # tek port (7357): app'i build eder + server'ı statik
   Node sunucusunu **sidecar** olarak başlatır ve `http://127.0.0.1:<port>/` adresini yükler; frontend
   değişmez, Tauri IPC kullanılmaz (`capabilities/default.json` boş). Sözleşme: kabuk sidecar'a
   `REQSTER_SIDECAR=1`, `REQSTER_PORT=0` (dinamik port), `REQSTER_RESOURCES_DIR` (`resource_dir()/resources`),
-  `REQSTER_DATA_DIR` (`app_data_dir()`, Windows'ta `%APPDATA%\tr.talhacigdem.reqly`) verir; sunucu `listen`
+  `REQSTER_DATA_DIR` (`lib.rs` `user_data_dir()` = `data_dir()/Reqster`: Windows `%APPDATA%\Reqster`, macOS
+  `~/Library/Application Support/Reqster`, Linux `~/.local/share/Reqster`; rc.26 ve öncesi kimlik adlı klasördeydi, 1.0.0 öncesi
+  olduğu için veri taşınmadı) verir; sunucu `listen`
   sonrası stdout'a `REQSTER_READY http://127.0.0.1:<port>/` yazar, kabuk bunu görünce pencereyi
   yönlendirir (`src-tauri/src/lib.rs`); 30 sn içinde gelmez ya da süreç çökerse hata diyaloğu + çıkış.
   Pencere kapanınca sidecar öldürülür; kabuk çökerse sidecar stdin kapanışını görüp kendini kapatır.
@@ -46,8 +48,8 @@ npm run start             # tek port (7357): app'i build eder + server'ı statik
   bitince asenkron kaydet diyaloğu (varsayılan İndirilenler, önerilen ad) açar, dosyayı taşır ve sayfaya `webview.eval` ile
   `reqster:file-saved` / `reqster:file-save-failed` DOM olayı yollar (IPC değil); iptal sessiz. Sunucu sidecar modunda `index.html`'e
   `data-shell="desktop"` basar → `lib/download.ts` `isDesktopShell()`: düğme "Kaydet…", bildirim kabuktan; tarayıcıda "indirildi" bildirimi.
-  **Kabuk logu**: her `crate::rlog!` satırı stderr'e ve `<app_data_dir>/logs/shell.log`'a (Windows
-  `%APPDATA%\tr.talhacigdem.reqly\logs\shell.log`, 1 MB'ta `shell.1.log`'a döner) yazılır; panik kancası da oraya
+  **Kabuk logu**: her `crate::rlog!` satırı stderr'e ve `<veri klasörü>/logs/shell.log`'a (Windows
+  `%APPDATA%\Reqster\logs\shell.log`, 1 MB'ta `shell.1.log`'a döner) yazılır; panik kancası da oraya
   yazar (`src-tauri/src/logging.rs`). Windows'ta GUI'nin stderr'i görünmediği için kapanma teşhisinde ilk bakılacak yer.
   Tuzak: `reqwest` eklenti yüzünden `rustls-no-provider` ile derlenir; kabukta reqwest istemcisi kurmadan
   önce `rustls::crypto::ring::default_provider().install_default()` çağrılmalı, yoksa rustls paniği `panic=abort` ile

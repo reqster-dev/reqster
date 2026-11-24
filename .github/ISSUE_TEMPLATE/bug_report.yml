@@ -43,6 +43,6 @@ body:
     attributes:
       label: Logs / Loglar
       description: >
-        Windows: %APPDATA%\tr.talhacigdem.reqly\logs\shell.log. Remove tokens, passwords and other secrets before
+        Windows: %APPDATA%\Reqster\logs\shell.log. Remove tokens, passwords and other secrets before
         pasting.
       render: text

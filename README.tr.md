@@ -37,8 +37,8 @@ Son sürümü [indirme sayfasından](https://reqster.talhacigdem.tr/download/lat
 | macOS | `Reqster_<sürüm>_aarch64.dmg` / `Reqster_<sürüm>_x64.dmg` | Apple Silicon / Intel. Paketler henüz notarize değil: ilk açılışta Sistem Ayarları → Gizlilik ve Güvenlik → "Yine de Aç" |
 | Linux | `Reqster-<sürüm>-linux-x64.tar.gz` | Sunucuyu çalıştırır; tarayıcıda `http://127.0.0.1:7357` |
 
-Veri tek bir SQLite dosyasındadır: Windows'ta `%APPDATA%\tr.talhacigdem.reqly\reqster.db`, macOS'ta
-`~/Library/Application Support/tr.talhacigdem.reqly/reqster.db`, diğer durumlarda `data/reqster.db` (ya da
+Veri tek bir SQLite dosyasındadır: Windows'ta `%APPDATA%\Reqster\reqster.db`, macOS'ta
+`~/Library/Application Support/Reqster/reqster.db`, diğer durumlarda `data/reqster.db` (ya da
 `REQSTER_DATA_DIR`). Masaüstü uygulaması açılışta ve günde bir kez güncelleme denetler; tek dış çağrısı budur, yalnızca sürüm
 bilgisi okunur ve başka veri gönderilmez.
 

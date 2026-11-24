@@ -3,7 +3,7 @@
 # NSIS kurulumunun yüküyle birebir aynı dosyalar (reqster.exe + reqster-server.exe + resources/), kurulum
 # gerektirmez: exe indirmeyi engelleyen kurumsal ağlar için. Kurulumdan farkı: WebView2 çalışma zamanını
 # indirmez (Windows 10/11'de Edge ile zaten vardır) ve Başlat menüsü kısayolu oluşturmaz. Veri yine
-# %APPDATA%\tr.talhacigdem.reqly altındadır (uygulama taşınabilir, veri değil).
+# %APPDATA%\Reqster altındadır (uygulama taşınabilir, veri değil).
 # Önkoşul: `npm run sidecar:win` ve `npx tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc`
 # koşmuş olmalı (CI'da release.yml → windows). Kullanım: deploy/win-portable.sh [sürüm] [çıktı dizini=dist]
 set -euo pipefail
@@ -30,7 +30,7 @@ cp -r "$resources" "$stage/Reqster/resources"
   echo "Kurulum gerektirmez: bu klasoru istediginiz yere acin ve reqster.exe'yi calistirin."
   echo "reqster-server.exe ve resources/ klasoru reqster.exe'nin yaninda kalmalidir."
   echo "Gereksinim: Microsoft Edge WebView2 calisma zamani (Windows 10/11'de Edge ile birlikte gelir)."
-  echo "Veriler: %APPDATA%\\tr.talhacigdem.reqly\\reqster.db"
+  echo "Veriler: %APPDATA%\\Reqster\\reqster.db"
   echo "Dosya imzasiz oldugu icin SmartScreen uyarabilir: Ek bilgi > Yine de calistir."
 } | sed 's/$/\r/' > "$stage/Reqster/BENIOKU.txt"
 

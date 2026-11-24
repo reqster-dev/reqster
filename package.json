@@ -1,7 +1,7 @@
 {
   "name": "reqster",
   "private": true,
-  "version": "1.0.0-rc.26",
+  "version": "1.0.0-rc.27",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

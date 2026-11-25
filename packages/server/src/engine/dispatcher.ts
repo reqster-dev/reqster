@@ -4,6 +4,7 @@ import { getActiveProxy, type ActiveProxy } from '../db/repositories/proxies.js'
 import { getSetting } from '../db/repositories/settings.js';
 import { msg } from '../i18n/context.js';
 import { probedConnector, type TimingProbe, withProbe } from './timing.js';
+import { trustedCas } from './trustStore.js';
 
 export interface DispatcherOptions {
   timeoutMs: number;
@@ -103,10 +104,15 @@ function closeSharedPool(): void {
 
 /* ---------- Dispatcher kurulumu ---------- */
 
+/** Doğrulama açıkken gömülü köklere ek olarak işletim sisteminin deposuna da güvenilir (bkz. trustStore.ts) */
+function tlsOptions(opts: DispatcherOptions): { rejectUnauthorized: boolean; ca?: string[] } {
+  return opts.verifyTls ? { rejectUnauthorized: true, ca: trustedCas() } : { rejectUnauthorized: false };
+}
+
 function createDirectDispatcher(opts: DispatcherOptions): Dispatcher {
   return new Agent({
     keepAliveTimeout: KEEP_ALIVE_TIMEOUT_MS,
-    connect: probedConnector(buildConnector({ rejectUnauthorized: opts.verifyTls })),
+    connect: probedConnector(buildConnector(tlsOptions(opts))),
   }).compose(interceptors.redirect({ maxRedirections: opts.maxRedirects }));
 }
 
@@ -124,8 +130,8 @@ function createProxyDispatcher(proxy: ActiveProxy, opts: DispatcherOptions): Dis
     // açar, Postman/curl davranışı da budur.
     proxyTunnel: false,
     // Hem proxy'nin kendi sertifikası (https proxy) hem tünel içindeki hedef sertifikası aynı ayara bağlı
-    proxyTls: { rejectUnauthorized: opts.verifyTls },
-    requestTls: { rejectUnauthorized: opts.verifyTls },
+    proxyTls: tlsOptions(opts),
+    requestTls: tlsOptions(opts),
     // Ölçüm: proxy'ye CONNECT istemcisi (clientFactory) ve hedef / düz proxy istemcileri (factory) bağlamdaki
     // probe'a bağlanır; fabrikalar undici'nin varsayılanlarıyla aynı istemciyi kurar (bkz. timing.ts)
     ...probedFactories(),

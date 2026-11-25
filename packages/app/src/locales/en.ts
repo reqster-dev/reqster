@@ -48,7 +48,7 @@ export const en: Record<MessageKey, string> = {
   'settings.network': 'Network',
   'settings.tls.label': 'TLS certificate verification',
   'settings.tls.hintBefore':
-    'When off, requests can reach self-signed or corporate-CA servers; this is insecure (a man-in-the-middle goes unnoticed) and a warning is shown on the response. The permanent fix is to register the corporate CA certificate via ',
+    'Root certificates in the operating system certificate store (including a corporate CA) are trusted. When off, requests can also reach servers whose certificate is not in the store, such as self-signed ones; this is insecure (a man-in-the-middle goes unnoticed) and a warning is shown on the response. The permanent fix is to install the certificate in the operating system and restart the app, or to register it via ',
   'settings.tls.hintAfter': '.',
   'settings.tls.off': 'TLS verification is off — all HTTPS requests skip certificate checks.',
   'settings.reuse.label': 'Reuse connections (keep-alive)',

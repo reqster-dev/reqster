@@ -696,11 +696,14 @@ iç transaction'lar savepoint). Paket biçimi dışa dönük sözleşmedir; alan
 7. Import işlemleri atomiktir (tek transaction) ve her zaman kullanıcıya rapor üretir.
 8. `shared` paketindeki tipler tek doğruluk kaynağıdır; UI ve server aynı doğrulama şemalarını kullanır.
 9. **TLS doğrulaması** varsayılan olarak açıktır ve ayar globaldir (`settings` tablosunda
-   `network.verify_tls`, `GET/PATCH /api/settings`). Kapatıldığında (self-signed / kurum CA'lı iç
-   sunucular için) undici `Agent` `rejectUnauthorized=false` ile açılır ve her yanıt
+   `network.verify_tls`, `GET/PATCH /api/settings`). Açıkken Node'un gömülü Mozilla listesine ek olarak
+   **işletim sisteminin sertifika deposuna** da güvenilir (`engine/trustStore.ts`, `tls.getCACertificates('system')`;
+   ilk HTTPS bağlantısında bir kez okunur, süreç boyu önbellekte kalır): kurum ağında TLS'i yeniden imzalayan
+   proxy'nin ya da iç CA'nın kökü işletim sistemine kuruluysa doğrulama açıkken çalışır, tarayıcı ve curl ile
+   aynı davranış. Kapatıldığında (depoda olmayan self-signed sunucular için) undici `Agent` `rejectUnauthorized=false` ile açılır ve her yanıt
    `tlsVerified=false` taşır; UI bunu uyarı olarak gösterir. Bu bir geçici çözümdür: araya giren
-   saldırgan fark edilmez. Kalıcı çözüm, kurum kök sertifikasını `NODE_EXTRA_CA_CERTS` ortam
-   değişkeniyle Node'a tanıtıp doğrulamayı açık tutmaktır. History şeması bu bayrağı saklamaz.
+   saldırgan fark edilmez. Kalıcı çözüm, kök sertifikayı işletim sistemine kurmak (ya da `NODE_EXTRA_CA_CERTS` ortam
+   değişkeniyle Node'a tanıtmak) ve doğrulamayı açık tutmaktır. Kabuğun updater'ı (Rust) bu listeyi kullanmaz. History şeması bu bayrağı saklamaz.
 10. **Güncelleme denetimi** uygulamanın tek dış çağrısıdır; yalnızca masaüstü kabuğu yapar, sürüm bilgisi dışında
     veri göndermez, kurmadan önce sorar. **Kapatılamaz** (rc.24): `update.auto_check` ayarı kaldırıldı, çünkü
     kullanıcıların güncelleme alabilmesi ve zorunlu güncellemenin (manifestte `minimumVersion`) uygulanabilmesi

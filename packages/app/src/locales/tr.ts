@@ -54,7 +54,7 @@ export const tr = {
   'settings.network': 'Ağ',
   'settings.tls.label': 'TLS sertifika doğrulaması',
   'settings.tls.hintBefore':
-    "Kapatılırsa self-signed ya da kurum CA'sıyla imzalanmış sunuculara istek atılabilir; bu durum güvensizdir (araya giren saldırgan fark edilmez) ve yanıtta uyarı gösterilir. Kalıcı çözüm: kurum CA sertifikasını ",
+    "İşletim sisteminin sertifika deposundaki kök sertifikalara (kurum CA'sı dahil) güvenilir. Kapatılırsa depoda olmayan, örneğin self-signed sertifikalı sunuculara da istek atılabilir; bu durum güvensizdir (araya giren saldırgan fark edilmez) ve yanıtta uyarı gösterilir. Kalıcı çözüm: sertifikayı işletim sistemine kurup uygulamayı yeniden başlatmak ya da ",
   'settings.tls.hintAfter': ' ile tanıtmak.',
   'settings.tls.off': 'TLS doğrulaması kapalı — tüm HTTPS istekleri sertifika denetimsiz gider.',
   'settings.reuse.label': 'Bağlantıları yeniden kullan (keep-alive)',

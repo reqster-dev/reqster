@@ -5,7 +5,7 @@ bileşenleri içerir; her biri kendi lisansıyla dağıtılır.
 
 Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle düzenlenmez.
 
-## Bileşenler (459)
+## Bileşenler (461)
 
 - Node.js 24.22.2 — MIT (+ gömülü bileşenlerin lisansları) (nodejs.org — sidecar ikilisi)
 - Inter InterVariable — OFL-1.1 (https://github.com/rsms/inter — packages/app/public/fonts)
@@ -324,54 +324,57 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - zip 9.5.1 — MIT (crates.io)
 - zlib-rs 0.6.8 — Zlib (crates.io)
 - zmij 1.0.23 — MIT (crates.io)
-- @codemirror/autocomplete 6.20.3 — MIT (npm)
-- @codemirror/commands 6.10.4 — MIT (npm)
+- @codemirror/autocomplete 6.20.4 — MIT (npm)
+- @codemirror/commands 6.11.1 — MIT (npm)
 - @codemirror/lang-javascript 6.2.5 — MIT (npm)
 - @codemirror/lang-json 6.0.2 — MIT (npm)
 - @codemirror/lang-xml 6.1.0 — MIT (npm)
-- @codemirror/language 6.12.4 — MIT (npm)
-- @codemirror/lint 6.9.7 — MIT (npm)
-- @codemirror/search 6.7.1 — MIT (npm)
-- @codemirror/state 6.7.1 — MIT (npm)
-- @codemirror/view 6.43.6 — MIT (npm)
-- @fastify/accept-negotiator 2.0.1 — MIT (npm)
-- @fastify/ajv-compiler 4.0.5 — MIT (npm)
-- @fastify/error 4.2.0 — MIT (npm)
-- @fastify/fast-json-stringify-compiler 5.1.0 — MIT (npm)
-- @fastify/forwarded 3.0.1 — MIT (npm)
-- @fastify/merge-json-schemas 0.2.1 — MIT (npm)
-- @fastify/proxy-addr 5.1.0 — MIT (npm)
-- @fastify/send 4.1.0 — MIT (npm)
-- @fastify/static 9.1.3 — MIT (npm)
-- @lezer/common 1.5.2 — MIT (npm)
-- @lezer/highlight 1.2.3 — MIT (npm)
-- @lezer/javascript 1.5.4 — MIT (npm)
+- @codemirror/language 6.13.1 — MIT (npm)
+- @codemirror/lint 6.9.8 — MIT (npm)
+- @codemirror/search 6.7.2 — MIT (npm)
+- @codemirror/state 6.7.6 — MIT (npm)
+- @codemirror/streamparser 6.0.0 — MIT (npm)
+- @codemirror/view 6.43.15 — MIT (npm)
+- @fastify/accept-negotiator 2.1.2 — MIT (npm)
+- @fastify/ajv-compiler 4.0.8 — MIT (npm)
+- @fastify/deepmerge 3.2.4 — MIT (npm)
+- @fastify/error 4.3.0 — MIT (npm)
+- @fastify/fast-json-stringify-compiler 5.2.0 — MIT (npm)
+- @fastify/forwarded 3.1.2 — MIT (npm)
+- @fastify/merge-json-schemas 0.2.2 — MIT (npm)
+- @fastify/proxy-addr 5.1.3 — MIT (npm)
+- @fastify/send 4.2.1 — MIT (npm)
+- @fastify/static 10.1.12 — MIT (npm)
+- @isaacs/nonrecursive-glob-match 1.1.0 — BlueOak-1.0.0 (npm)
+- @lezer/common 1.5.6 — MIT (npm)
+- @lezer/highlight 1.2.5 — MIT (npm)
+- @lezer/javascript 1.5.6 — MIT (npm)
 - @lezer/json 1.0.3 — MIT (npm)
-- @lezer/lr 1.4.10 — MIT (npm)
+- @lezer/lr 1.4.12 — MIT (npm)
 - @lezer/xml 1.0.6 — MIT (npm)
 - @lukeed/ms 2.0.2 — MIT (npm)
-- @marijn/find-cluster-break 1.0.3 — MIT (npm)
+- @marijn/find-cluster-break 1.0.4 — MIT (npm)
 - @pinojs/redact 0.4.0 — MIT (npm)
 - @types/prop-types 15.7.15 — MIT (npm)
-- @types/react 18.3.31 — MIT (npm)
+- @types/react 18.3.32 — MIT (npm)
 - abstract-logging 2.0.1 — MIT (npm)
 - ajv 8.20.0 — MIT (npm)
 - ajv-formats 3.0.1 — MIT (npm)
 - atomic-sleep 1.0.0 — MIT (npm)
-- avvio 9.2.0 — MIT (npm)
+- avvio 9.3.1 — MIT (npm)
 - balanced-match 4.0.4 — MIT (npm)
 - base64-js 1.5.1 — MIT (npm)
 - better-sqlite3 12.11.1 — MIT (npm)
 - bindings 1.5.0 — MIT (npm)
 - bl 4.1.0 — MIT (npm)
-- brace-expansion 5.0.7 — MIT (npm)
+- brace-expansion 5.1.0 — MIT (npm)
 - buffer 5.7.1 — MIT (npm)
 - chownr 1.1.4 — ISC (npm)
 - codemirror 6.0.2 — MIT (npm)
-- content-disposition 1.1.0 — MIT (npm)
-- cookie 1.1.1 — MIT (npm)
+- content-disposition 3.1.0 — MIT (npm)
+- cookie 2.0.2 — MIT (npm)
 - crelt 1.0.7 — MIT (npm)
-- csstype 3.2.3 — MIT (npm)
+- csstype 3.2.4 — MIT (npm)
 - decompress-response 6.0.0 — MIT (npm)
 - deep-extend 0.6.0 — MIT (npm)
 - depd 2.0.0 — MIT (npm)
@@ -382,68 +385,67 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - expand-template 2.0.3 — (MIT OR WTFPL) (npm)
 - fast-decode-uri-component 1.0.1 — MIT (npm)
 - fast-deep-equal 3.1.3 — MIT (npm)
-- fast-json-stringify 7.0.0 — MIT (npm)
+- fast-json-stringify 7.3.10 — MIT (npm)
 - fast-querystring 1.1.2 — MIT (npm)
-- fast-uri 3.1.3 — BSD-3-Clause (npm)
-- fastify 5.10.0 — MIT (npm)
-- fastify-plugin 5.1.0 — MIT (npm)
-- fastq 1.20.1 — ISC (npm)
+- fast-uri 3.1.9 — BSD-3-Clause (npm)
+- fast-uri 4.2.4 — BSD-3-Clause (npm)
+- fastify 5.12.8 — MIT (npm)
+- fastify-plugin 6.0.1 — MIT (npm)
+- fastq 1.20.3 — ISC (npm)
 - file-uri-to-path 1.0.0 — MIT (npm)
-- find-my-way 9.6.0 — MIT (npm)
+- find-my-way 9.10.2 — MIT (npm)
 - fs-constants 1.0.0 — MIT (npm)
 - github-from-package 0.0.0 — MIT (npm)
-- glob 13.0.6 — BlueOak-1.0.0 (npm)
+- glob 14.0.6 — BlueOak-1.0.0 (npm)
 - http-errors 2.0.1 — MIT (npm)
 - ieee754 1.2.1 — BSD-3-Clause (npm)
 - inherits 2.0.4 — ISC (npm)
 - ini 1.3.8 — ISC (npm)
-- ipaddr.js 2.4.0 — MIT (npm)
-- isolated-vm 7.0.0 — ISC (npm)
+- ipaddr.js 2.5.0 — MIT (npm)
+- isolated-vm 7.0.2 — ISC (npm)
 - js-tokens 4.0.0 — MIT (npm)
-- json-schema-ref-resolver 3.0.0 — MIT (npm)
+- json-schema-ref-resolver 3.0.1 — MIT (npm)
 - json-schema-traverse 1.0.0 — MIT (npm)
-- light-my-request 6.6.0 — BSD-3-Clause (npm)
+- light-my-request 6.8.1 — BSD-3-Clause (npm)
 - loose-envify 1.4.0 — MIT (npm)
-- lru-cache 11.5.1 — BlueOak-1.0.0 (npm)
+- lru-cache 11.5.3 — BlueOak-1.0.0 (npm)
 - lucide-react 1.72.0 — ISC (npm)
 - mime 3.0.0 — MIT (npm)
 - mimic-response 3.1.0 — MIT (npm)
-- minimatch 10.2.5 — BlueOak-1.0.0 (npm)
+- minimatch 11.0.9 — BlueOak-1.0.0 (npm)
 - minimist 1.2.8 — MIT (npm)
 - minipass 7.1.3 — BlueOak-1.0.0 (npm)
 - mkdirp-classic 0.5.3 — MIT (npm)
 - napi-build-utils 2.0.0 — MIT (npm)
-- node-abi 3.94.0 — MIT (npm)
+- node-abi 3.104.0 — MIT (npm)
 - node-gyp-build 4.8.4 — MIT (npm)
 - on-exit-leak-free 2.1.2 — MIT (npm)
 - once 1.4.0 — ISC (npm)
-- path-scurry 2.0.2 — BlueOak-1.0.0 (npm)
-- pino 10.3.1 — MIT (npm)
+- path-scurry 3.0.0 — BlueOak-1.0.0 (npm)
+- pino 10.4.0 — MIT (npm)
 - pino-abstract-transport 3.0.0 — MIT (npm)
 - pino-std-serializers 7.1.0 — MIT (npm)
 - prebuild-install 7.1.3 — MIT (npm)
-- process-warning 4.0.1 — MIT (npm)
-- process-warning 5.0.0 — MIT (npm)
+- process-warning 5.1.1 — MIT (npm)
 - pump 3.0.4 — MIT (npm)
 - quick-format-unescaped 4.0.4 — MIT (npm)
 - rc 1.2.8 — (BSD-2-Clause OR MIT OR Apache-2.0) (npm)
 - react 18.3.1 — MIT (npm)
 - react-dom 18.3.1 — MIT (npm)
 - readable-stream 3.6.2 — MIT (npm)
-- real-require 0.2.0 — MIT (npm)
 - real-require 1.0.0 — MIT (npm)
 - require-from-string 2.0.2 — MIT (npm)
-- ret 0.5.0 — MIT (npm)
+- ret 0.5.1 — MIT (npm)
 - reusify 1.1.0 — MIT (npm)
 - rfdc 1.4.1 — MIT (npm)
 - safe-buffer 5.2.1 — MIT (npm)
-- safe-regex2 5.1.1 — MIT (npm)
+- safe-regex2 5.1.2 — MIT (npm)
 - safe-stable-stringify 2.5.0 — MIT (npm)
 - scheduler 0.23.2 — MIT (npm)
-- secure-json-parse 4.1.0 — BSD-3-Clause (npm)
-- semver 7.8.5 — ISC (npm)
-- semver 7.8.5 — ISC (npm)
-- set-cookie-parser 2.7.2 — MIT (npm)
+- secure-json-parse 4.1.1 — BSD-3-Clause (npm)
+- semver 7.8.6 — ISC (npm)
+- semver 7.8.6 — ISC (npm)
+- set-cookie-parser 3.2.3 — MIT (npm)
 - setprototypeof 1.2.0 — ISC (npm)
 - simple-concat 1.0.1 — MIT (npm)
 - simple-get 4.0.1 — MIT (npm)
@@ -452,20 +454,20 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - statuses 2.0.2 — MIT (npm)
 - string_decoder 1.3.0 — MIT (npm)
 - strip-json-comments 2.0.1 — MIT (npm)
-- style-mod 4.1.3 — MIT (npm)
-- tar-fs 2.1.5 — MIT (npm)
+- style-mod 4.1.5 — MIT (npm)
+- tar-fs 2.1.6 — MIT (npm)
 - tar-stream 2.2.0 — MIT (npm)
-- thread-stream 4.2.0 — MIT (npm)
+- thread-stream 4.2.1 — MIT (npm)
 - toad-cache 3.7.4 — MIT (npm)
 - toidentifier 1.0.1 — MIT (npm)
 - tunnel-agent 0.6.0 — Apache-2.0 (npm)
-- undici 7.28.0 — MIT (npm)
+- undici 7.30.2 — MIT (npm)
 - util-deprecate 1.0.2 — MIT (npm)
 - uuid 11.1.1 — MIT (npm)
 - w3c-keyname 2.2.8 — MIT (npm)
 - wrappy 1.0.2 — ISC (npm)
-- zod 3.25.76 — MIT (npm)
-- zustand 5.0.14 — MIT (npm)
+- zod 4.6.7 — MIT (npm)
+- zustand 5.1.0 — MIT (npm)
 
 ## Lisans metinleri
 
@@ -12045,7 +12047,7 @@ Apache License
 - windows-threading 0.2.1 — MIT OR Apache-2.0 (crates.io)
 - windows-version 0.1.7 — MIT OR Apache-2.0 (crates.io)
 - @types/prop-types 15.7.15 — MIT (npm)
-- @types/react 18.3.31 — MIT (npm)
+- @types/react 18.3.32 — MIT (npm)
 
 ```text
 MIT License
@@ -12246,16 +12248,17 @@ freely, subject to the following restrictions:
 
 ---
 
-- @codemirror/autocomplete 6.20.3 — MIT (npm)
-- @codemirror/commands 6.10.4 — MIT (npm)
+- @codemirror/autocomplete 6.20.4 — MIT (npm)
+- @codemirror/commands 6.11.1 — MIT (npm)
 - @codemirror/lang-javascript 6.2.5 — MIT (npm)
 - @codemirror/lang-json 6.0.2 — MIT (npm)
 - @codemirror/lang-xml 6.1.0 — MIT (npm)
-- @codemirror/language 6.12.4 — MIT (npm)
-- @codemirror/lint 6.9.7 — MIT (npm)
-- @codemirror/search 6.7.1 — MIT (npm)
-- @codemirror/state 6.7.1 — MIT (npm)
-- @codemirror/view 6.43.6 — MIT (npm)
+- @codemirror/language 6.13.1 — MIT (npm)
+- @codemirror/lint 6.9.8 — MIT (npm)
+- @codemirror/search 6.7.2 — MIT (npm)
+- @codemirror/state 6.7.6 — MIT (npm)
+- @codemirror/streamparser 6.0.0 — MIT (npm)
+- @codemirror/view 6.43.15 — MIT (npm)
 - codemirror 6.0.2 — MIT (npm)
 
 ```text
@@ -12284,94 +12287,10 @@ THE SOFTWARE.
 
 ---
 
-- @fastify/accept-negotiator 2.0.1 — MIT (npm)
-
-```text
-The MIT License
-
-Copyright (c) 2022 The Fastify Team
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
----
-
-- @fastify/ajv-compiler 4.0.5 — MIT (npm)
-
-```text
-MIT License
-
-Copyright (c) 2022-present The Fastify team
-
-The Fastify team members are listed at https://github.com/fastify/fastify#team.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-- @fastify/error 4.2.0 — MIT (npm)
-
-```text
-MIT License
-
-Copyright (c) 2020 Fastify
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-- @fastify/fast-json-stringify-compiler 5.1.0 — MIT (npm)
+- @fastify/accept-negotiator 2.1.2 — MIT (npm)
+- @fastify/ajv-compiler 4.0.8 — MIT (npm)
+- @fastify/deepmerge 3.2.4 — MIT (npm)
+- @fastify/fast-json-stringify-compiler 5.2.0 — MIT (npm)
 
 ```text
 MIT License
@@ -12399,15 +12318,42 @@ SOFTWARE.
 
 ---
 
-- @fastify/forwarded 3.0.1 — MIT (npm)
+- @fastify/error 4.3.0 — MIT (npm)
+- process-warning 5.1.1 — MIT (npm)
+
+```text
+MIT License
+
+Copyright (c) 2020-present The Fastify team <https://github.com/fastify/fastify#team>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+- @fastify/forwarded 3.1.2 — MIT (npm)
 
 ```text
 MIT License
 
 Copyright (c) 2014-2017 Douglas Christopher Wilson
-Copyright (c) 2021-present The Fastify team
-
-The Fastify team members are listed at https://github.com/fastify/fastify#team.
+Copyright (c) 2021-present The Fastify team <https://github.com/fastify/fastify#team>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12430,12 +12376,12 @@ SOFTWARE.
 
 ---
 
-- @fastify/merge-json-schemas 0.2.1 — MIT (npm)
+- @fastify/merge-json-schemas 0.2.2 — MIT (npm)
 
 ```text
 MIT License
 
-Copyright (c) 2024 Fastify
+Copyright (c) 2024-present The Fastify team <https://github.com/fastify/fastify#team>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12458,15 +12404,13 @@ SOFTWARE.
 
 ---
 
-- @fastify/proxy-addr 5.1.0 — MIT (npm)
+- @fastify/proxy-addr 5.1.3 — MIT (npm)
 
 ```text
 MIT License
 
 Copyright (c) 2014-2016 Douglas Christopher Wilson
-Copyright (c) 2021-present The Fastify team
-
-The Fastify team members are listed at https://github.com/fastify/fastify#team.
+Copyright (c) 2021-present The Fastify team <https://github.com/fastify/fastify#team>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12489,14 +12433,14 @@ SOFTWARE.
 
 ---
 
-- @fastify/send 4.1.0 — MIT (npm)
+- @fastify/send 4.2.1 — MIT (npm)
 
 ```text
 MIT License
 
 Copyright (c) 2012 TJ Holowaychuk
 Copyright (c) 2014-2022 Douglas Christopher Wilson
-Copyright (c) 2023 The Fastify Team
+Copyright (c) 2023-present The Fastify team <https://github.com/fastify/fastify#team>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12519,7 +12463,8 @@ SOFTWARE.
 
 ---
 
-- @fastify/static 9.1.3 — MIT (npm)
+- @fastify/static 10.1.12 — MIT (npm)
+- fastify-plugin 6.0.1 — MIT (npm)
 
 ```text
 MIT License
@@ -12547,10 +12492,75 @@ SOFTWARE.
 
 ---
 
-- @lezer/common 1.5.2 — MIT (npm)
-- @lezer/highlight 1.2.3 — MIT (npm)
-- @lezer/javascript 1.5.4 — MIT (npm)
-- @lezer/lr 1.4.10 — MIT (npm)
+- @isaacs/nonrecursive-glob-match 1.1.0 — BlueOak-1.0.0 (npm)
+- lru-cache 11.5.3 — BlueOak-1.0.0 (npm)
+- minipass 7.1.3 — BlueOak-1.0.0 (npm)
+- path-scurry 3.0.0 — BlueOak-1.0.0 (npm)
+
+```text
+# Blue Oak Model License
+
+Version 1.0.0
+
+## Purpose
+
+This license gives everyone as much permission to work with
+this software as possible, while protecting contributors
+from liability.
+
+## Acceptance
+
+In order to receive this license, you must agree to its
+rules.  The rules of this license are both obligations
+under that agreement and conditions to your license.
+You must not do anything with this software that triggers
+a rule that you cannot or will not follow.
+
+## Copyright
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe that contributor's
+copyright in it.
+
+## Notices
+
+You must ensure that everyone who gets a copy of
+any part of this software from you, with or without
+changes, also gets the text of this license or a link to
+<https://blueoakcouncil.org/license/1.0.0>.
+
+## Excuse
+
+If anyone notifies you in writing that you have not
+complied with [Notices](#notices), you can keep your
+license by taking all practical steps to comply within 30
+days after the notice.  If you do not do so, your license
+ends immediately.
+
+## Patent
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe any patent claims
+they can license or become able to license.
+
+## Reliability
+
+No contributor can revoke this license.
+
+## No Liability
+
+***As far as the law allows, this software comes as is,
+without any warranty or condition, and no contributor
+will be liable to anyone for any damages related to this
+software or this license, under any kind of legal claim.***
+```
+
+---
+
+- @lezer/common 1.5.6 — MIT (npm)
+- @lezer/highlight 1.2.5 — MIT (npm)
+- @lezer/javascript 1.5.6 — MIT (npm)
+- @lezer/lr 1.4.12 — MIT (npm)
 - @lezer/xml 1.0.6 — MIT (npm)
 
 ```text
@@ -12623,7 +12633,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-- @marijn/find-cluster-break 1.0.3 — MIT (npm)
+- @marijn/find-cluster-break 1.0.4 — MIT (npm)
 
 ```text
 MIT License
@@ -12763,15 +12773,13 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-- avvio 9.2.0 — MIT (npm)
+- avvio 9.3.1 — MIT (npm)
 
 ```text
 MIT License
 
 Copyright (c) 2016-2020 Matteo Collina
-Copyright (c) 2020-present The Fastify team
-
-The Fastify team members are listed at https://github.com/fastify/fastify#team.
+Copyright (c) 2020-present The Fastify team <https://github.com/fastify/fastify#team>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12929,7 +12937,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-- brace-expansion 5.0.7 — MIT (npm)
+- brace-expansion 5.1.0 — MIT (npm)
 
 ```text
 MIT License
@@ -12990,8 +12998,8 @@ THE SOFTWARE.
 - chownr 1.1.4 — ISC (npm)
 - ini 1.3.8 — ISC (npm)
 - once 1.4.0 — ISC (npm)
-- semver 7.8.5 — ISC (npm)
-- semver 7.8.5 — ISC (npm)
+- semver 7.8.6 — ISC (npm)
+- semver 7.8.6 — ISC (npm)
 - wrappy 1.0.2 — ISC (npm)
 
 ```text
@@ -13014,7 +13022,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ---
 
-- content-disposition 1.1.0 — MIT (npm)
+- content-disposition 3.1.0 — MIT (npm)
 
 ```text
 (The MIT License)
@@ -13043,7 +13051,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-- cookie 1.1.1 — MIT (npm)
+- cookie 2.0.2 — MIT (npm)
 
 ```text
 (The MIT License)
@@ -13099,7 +13107,7 @@ THE SOFTWARE.
 
 ---
 
-- csstype 3.2.3 — MIT (npm)
+- csstype 3.2.4 — MIT (npm)
 
 ```text
 Copyright (c) 2017-2018 Fredrik Nicol
@@ -13228,7 +13236,7 @@ THE SOFTWARE.
 
 - end-of-stream 1.4.5 — MIT (npm)
 - pump 3.0.4 — MIT (npm)
-- tar-fs 2.1.5 — MIT (npm)
+- tar-fs 2.1.6 — MIT (npm)
 - tar-stream 2.2.0 — MIT (npm)
 
 ```text
@@ -13375,7 +13383,7 @@ SOFTWARE.
 
 ---
 
-- fast-json-stringify 7.0.0 — MIT (npm)
+- fast-json-stringify 7.3.10 — MIT (npm)
 
 ```text
 MIT License
@@ -13436,7 +13444,8 @@ DEALINGS IN THE SOFTWARE.
 
 ---
 
-- fast-uri 3.1.3 — BSD-3-Clause (npm)
+- fast-uri 3.1.9 — BSD-3-Clause (npm)
+- fast-uri 4.2.4 — BSD-3-Clause (npm)
 
 ```text
 Copyright (c) 2011-2021, Gary Court until https://github.com/garycourt/uri-js/commit/a1acf730b4bba3f1097c9f52e7d9d3aba8cdcaae
@@ -13473,7 +13482,7 @@ The complete list of contributors can be found at:
 
 ---
 
-- fastify 5.10.0 — MIT (npm)
+- fastify 5.12.8 — MIT (npm)
 
 ```text
 MIT License
@@ -13501,37 +13510,7 @@ SOFTWARE.
 
 ---
 
-- fastify-plugin 5.1.0 — MIT (npm)
-
-```text
-MIT License
-
-Copyright (c) 2017-present The Fastify team
-
-The Fastify team members are listed at https://github.com/fastify/fastify#team.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-- fastq 1.20.1 — ISC (npm)
+- fastq 1.20.3 — ISC (npm)
 
 ```text
 Copyright (c) 2015-2020, Matteo Collina <matteo.collina@gmail.com>
@@ -13578,7 +13557,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-- find-my-way 9.6.0 — MIT (npm)
+- find-my-way 9.10.2 — MIT (npm)
 
 ```text
 MIT License
@@ -13660,7 +13639,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-- glob 13.0.6 — BlueOak-1.0.0 (npm)
+- glob 14.0.6 — BlueOak-1.0.0 (npm)
 
 ```text
 All packages under `src/` are licensed according to the terms in
@@ -13799,7 +13778,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 ---
 
-- ipaddr.js 2.4.0 — MIT (npm)
+- ipaddr.js 2.5.0 — MIT (npm)
 
 ```text
 Copyright (C) 2011-2017 whitequark <whitequark@whitequark.org>
@@ -13825,7 +13804,7 @@ THE SOFTWARE.
 
 ---
 
-- isolated-vm 7.0.0 — ISC (npm)
+- isolated-vm 7.0.2 — ISC (npm)
 
 ```text
 Copyright 2017 Marcel Laverdet
@@ -13873,12 +13852,12 @@ THE SOFTWARE.
 
 ---
 
-- json-schema-ref-resolver 3.0.0 — MIT (npm)
+- json-schema-ref-resolver 3.0.1 — MIT (npm)
 
 ```text
 MIT License
 
-Copyright (c) 2023 Fastify
+Copyright (c) 2023-present The Fastify team <https://github.com/fastify/fastify#team>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -13901,12 +13880,12 @@ SOFTWARE.
 
 ---
 
-- light-my-request 6.6.0 — BSD-3-Clause (npm)
+- light-my-request 6.8.1 — BSD-3-Clause (npm)
 
 ```text
-Copyright (c) 2017 The Fastify Team
-Copyright (c) 2012-2017, Project contributors
 Copyright (c) 2012-2014, Walmart
+Copyright (c) 2012-2017, Project contributors
+Copyright (c) 2017-present The Fastify team <https://github.com/fastify/fastify#team>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -13964,70 +13943,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-```
-
----
-
-- lru-cache 11.5.1 — BlueOak-1.0.0 (npm)
-- minipass 7.1.3 — BlueOak-1.0.0 (npm)
-- path-scurry 2.0.2 — BlueOak-1.0.0 (npm)
-
-```text
-# Blue Oak Model License
-
-Version 1.0.0
-
-## Purpose
-
-This license gives everyone as much permission to work with
-this software as possible, while protecting contributors
-from liability.
-
-## Acceptance
-
-In order to receive this license, you must agree to its
-rules.  The rules of this license are both obligations
-under that agreement and conditions to your license.
-You must not do anything with this software that triggers
-a rule that you cannot or will not follow.
-
-## Copyright
-
-Each contributor licenses you to do everything with this
-software that would otherwise infringe that contributor's
-copyright in it.
-
-## Notices
-
-You must ensure that everyone who gets a copy of
-any part of this software from you, with or without
-changes, also gets the text of this license or a link to
-<https://blueoakcouncil.org/license/1.0.0>.
-
-## Excuse
-
-If anyone notifies you in writing that you have not
-complied with [Notices](#notices), you can keep your
-license by taking all practical steps to comply within 30
-days after the notice.  If you do not do so, your license
-ends immediately.
-
-## Patent
-
-Each contributor licenses you to do everything with this
-software that would otherwise infringe any patent claims
-they can license or become able to license.
-
-## Reliability
-
-No contributor can revoke this license.
-
-## No Liability
-
-***As far as the law allows, this software comes as is,
-without any warranty or condition, and no contributor
-will be liable to anyone for any damages related to this
-software or this license, under any kind of legal claim.***
 ```
 
 ---
@@ -14110,7 +14025,7 @@ THE SOFTWARE.
 
 ---
 
-- minimatch 10.2.5 — BlueOak-1.0.0 (npm)
+- minimatch 11.0.9 — BlueOak-1.0.0 (npm)
 
 ```text
 # Blue Oak Model License
@@ -14228,7 +14143,7 @@ SOFTWARE.
 
 ---
 
-- node-abi 3.94.0 — MIT (npm)
+- node-abi 3.104.0 — MIT (npm)
 
 ```text
 MIT License
@@ -14285,7 +14200,7 @@ THE SOFTWARE.
 ---
 
 - on-exit-leak-free 2.1.2 — MIT (npm)
-- thread-stream 4.2.0 — MIT (npm)
+- thread-stream 4.2.1 — MIT (npm)
 
 ```text
 MIT License
@@ -14313,12 +14228,12 @@ SOFTWARE.
 
 ---
 
-- pino 10.3.1 — MIT (npm)
+- pino 10.4.0 — MIT (npm)
 
 ```text
 The MIT License (MIT)
 
-Copyright (c) 2016-2025 Matteo Collina, David Mark Clements and the Pino contributors listed at <https://github.com/pinojs/pino#the-team> and in the README file.
+Copyright (c) 2016-present Matteo Collina, David Mark Clements and the Pino contributors listed at <https://github.com/pinojs/pino#the-team> and in the README file.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -14407,35 +14322,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-```
-
----
-
-- process-warning 4.0.1 — MIT (npm)
-- process-warning 5.0.0 — MIT (npm)
-
-```text
-MIT License
-
-Copyright (c) Fastify
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 ```
 
 ---
@@ -14639,7 +14525,6 @@ IN THE SOFTWARE.
 
 ---
 
-- real-require 0.2.0 — MIT (npm)
 - real-require 1.0.0 — MIT (npm)
 
 ```text
@@ -14696,7 +14581,7 @@ THE SOFTWARE.
 
 ---
 
-- ret 0.5.0 — MIT (npm)
+- ret 0.5.1 — MIT (npm)
 
 ```text
 MIT License
@@ -14804,7 +14689,7 @@ THE SOFTWARE.
 
 ---
 
-- safe-regex2 5.1.1 — MIT (npm)
+- safe-regex2 5.1.2 — MIT (npm)
 
 ```text
 MIT License
@@ -14860,14 +14745,12 @@ SOFTWARE.
 
 ---
 
-- secure-json-parse 4.1.0 — BSD-3-Clause (npm)
+- secure-json-parse 4.1.1 — BSD-3-Clause (npm)
 
 ```text
 Copyright (c) 2019, Sideway Inc, and project contributors
-Copyright (c) 2019-present The Fastify team
+Copyright (c) 2019-present The Fastify team <https://github.com/fastify/fastify#team>
 All rights reserved.
-
-The Fastify team members are listed at https://github.com/fastify/fastify#team.
 
 The complete list of contributors can be found at:
 - https://github.com/hapijs/bourne/graphs/contributors
@@ -14886,7 +14769,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 ---
 
-- set-cookie-parser 2.7.2 — MIT (npm)
+- set-cookie-parser 3.2.3 — MIT (npm)
 
 ```text
 The MIT License (MIT)
@@ -15039,7 +14922,7 @@ THE SOFTWARE.
 
 ---
 
-- style-mod 4.1.3 — MIT (npm)
+- style-mod 4.1.5 — MIT (npm)
 
 ```text
 Copyright (C) 2018 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
@@ -15183,7 +15066,7 @@ END OF TERMS AND CONDITIONS
 
 ---
 
-- undici 7.28.0 — MIT (npm)
+- undici 7.30.2 — MIT (npm)
 
 ```text
 MIT License
@@ -15284,7 +15167,7 @@ THE SOFTWARE.
 
 ---
 
-- zod 3.25.76 — MIT (npm)
+- zod 4.6.7 — MIT (npm)
 
 ```text
 MIT License
@@ -15312,7 +15195,7 @@ SOFTWARE.
 
 ---
 
-- zustand 5.0.14 — MIT (npm)
+- zustand 5.1.0 — MIT (npm)
 
 ```text
 MIT License

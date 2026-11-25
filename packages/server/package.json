@@ -16,14 +16,14 @@
     "build": "tsc --noEmit"
   },
   "dependencies": {
-    "@fastify/static": "^9.1.0",
+    "@fastify/static": "^10.1.12",
     "@reqster/shared": "*",
     "better-sqlite3": "^12.2.0",
     "fastify": "^5.2.0",
     "isolated-vm": "^7.0.0",
     "undici": "^7.3.0",
     "uuid": "^11.0.0",
-    "zod": "^3.24.0"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",

@@ -14,6 +14,7 @@ import { historyRoutes } from './api/history.routes.js';
 import { importRoutes } from './api/import.routes.js';
 import { internalRoutes } from './api/internal.routes.js';
 import { requestsRoutes } from './api/requests.routes.js';
+import { responsesRoutes } from './api/responses.routes.js';
 import { proxiesRoutes } from './api/proxies.routes.js';
 import { settingsRoutes } from './api/settings.routes.js';
 import { getDb } from './db/connection.js';
@@ -23,6 +24,7 @@ import { getDefaultWorkspace } from './db/repositories/workspaces.js';
 import { msg, parseLangHeader, runWithLang } from './i18n/context.js';
 import { appDistDir } from './paths.js';
 import { shutdownScriptWorker } from './scripting/host.js';
+import { clearResponseFiles } from './engine/responseStore.js';
 import { registerLocalGuard, TOKEN_QUERY } from './security/localGuard.js';
 
 const app = Fastify({
@@ -53,6 +55,7 @@ app.register(
     environmentsRoutes(api);
     historyRoutes(api);
     executeRoutes(api);
+    responsesRoutes(api);
     importRoutes(api);
     exportRoutes(api);
     settingsRoutes(api);
@@ -153,6 +156,7 @@ function shutdown(): void {
 async function main(): Promise<void> {
   getDb(); // migration'ları uygula
   getDefaultWorkspace(); // ilk açılışta workspace'i garanti et
+  clearResponseFiles(); // önceki oturumun geçici yanıt dosyaları
   await registerStaticFrontend();
   // Gizlilik sınırı (TASARIM.md §8): yalnızca loopback'e bağlan
   // Varsayılan yalnızca loopback (yerel araç). Container'da REQSTER_HOST=0.0.0.0 ile dışa açılır;

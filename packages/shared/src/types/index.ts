@@ -195,6 +195,19 @@ export interface ExecuteTimings {
   retried?: boolean;
 }
 
+/**
+ * Yanıtın tam (kırpılmamış, metne çevrilmemiş) gövdesi: `GET /api/responses/<id>/file` ile indirilir. Geçicidir;
+ * yeni yanıtlar geldikçe ve uygulama kapanınca silinir (silinmişse uç 404 döner).
+ */
+export interface ResponseBodyFile {
+  id: string;
+  /** Önerilen dosya adı (`Content-Disposition` → adresin son parçası → `response`; uzantı içerik türünden) */
+  fileName: string;
+  sizeBytes: number;
+  /** `false`: yanıt dosya üst sınırını aştı, dosyada yalnızca baş kısım var */
+  complete: boolean;
+}
+
 export interface ExecuteResult {
   historyId: string;
   /** Ağ hatasında undefined */
@@ -207,6 +220,10 @@ export interface ExecuteResult {
   truncated: boolean;
   /** Gövde UTF-8 dışında bir kodlamayla çözüldüyse o kodlamanın adı (`windows-1254`…) */
   charset?: string;
+  /** Gövde metin değil (zip, resim, PDF…): `body` boş gelir, içerik yalnızca `bodyFile` ile kaydedilebilir */
+  binary?: boolean;
+  /** Yanıtın tam gövdesi sunucuda geçici dosyada duruyorsa ("Yanıtı kaydet"); boş gövdede ve hatada yok */
+  bodyFile?: ResponseBodyFile;
   error?: string;
   resolvedUrl: string;
   unresolvedVariables: string[];

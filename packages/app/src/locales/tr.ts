@@ -247,6 +247,7 @@ export const tr = {
   'kv.type.file': 'Dosya',
   'kv.type.title': 'Alan türü',
   'kv.file.placeholder': 'dosya yolu (örn. C:\\Belgeler\\rapor.pdf)',
+  'kv.file.pick': 'Dosya seç',
 
   // Script düzenleyici
   'scripts.type.aria': 'Script türü',
@@ -274,6 +275,14 @@ export const tr = {
   'response.badge.error': 'HATA',
   'response.badge.scriptError': 'SCRIPT HATASI',
   'response.truncated': 'gövde kırpıldı',
+  'response.truncated.saveHint': 'Gösterilen gövde kırpıldı; tamamı "{action}" ile alınabilir.',
+  'response.save.title': 'Yanıt gövdesinin tamamını dosyaya kaydet',
+  'response.save.partial': 'Yanıt üst sınırı (200 MB) aştı: dosya yalnızca gövdenin ilk kısmını içerir.',
+  'response.binary.title': 'İkili yanıt',
+  'response.binary.hint': 'Gövde metin olarak gösterilemiyor; dosyaya kaydedebilirsiniz.',
+  'response.binary.contentType': 'İçerik türü',
+  'response.binary.size': 'Boyut',
+  'response.binary.fileName': 'Dosya adı',
   'response.charset.title': 'Gövde {charset} kodlamasıyla çözüldü',
   'response.view.label': 'Gövde görünümü',
   'response.view.pretty': 'Düzenli',

@@ -72,6 +72,14 @@ const MESSAGES = {
     tr: 'Açık tutulan bağlantı sunucu tarafından kapatılmıştı ({error}); {method} isteği yan etkisi olabileceği için otomatik yinelenmedi. Tekrar gönderin.',
     en: 'The kept-alive connection had been closed by the server ({error}); the {method} request was not retried automatically because it may have side effects. Send it again.',
   },
+  'shell.pickUnavailable': {
+    tr: 'Dosya seçici yalnızca masaüstü uygulamasında çalışır; dosya yolunu elle yazın.',
+    en: 'The file picker only works in the desktop app; type the file path instead.',
+  },
+  'response.fileGone': {
+    tr: 'Bu yanıtın dosyası artık yok (geçici dosyalar yeni yanıtlarla ve uygulama kapanınca silinir). İsteği yeniden gönderin.',
+    en: 'The file for this response is gone (temporary files are removed by newer responses and when the app closes). Send the request again.',
+  },
   'execute.cancelled': { tr: 'İstek iptal edildi.', en: 'Request cancelled.' },
   'execute.preRequestError': { tr: 'Pre-request script hatası — {error}', en: 'Pre-request script error — {error}' },
   'execute.sourceRequest': { tr: 'İstek', en: 'Request' },

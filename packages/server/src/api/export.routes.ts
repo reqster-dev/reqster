@@ -9,32 +9,11 @@ import {
   exportOptions,
 } from '../exporters/postman-v2.js';
 import { exportCurl } from '../exporters/curl.js';
-import { parseBody } from './helpers.js';
-
-/** Türkçe karakterleri ASCII'ye indirir, kalan özel karakterleri `_` yapar (RFC 6266 `filename` için) */
-function asciiFileName(name: string): string {
-  const transliterated = name
-    .replace(/[çÇ]/g, (c) => (c === 'ç' ? 'c' : 'C'))
-    .replace(/[ğĞ]/g, (c) => (c === 'ğ' ? 'g' : 'G'))
-    .replace(/ı/g, 'i')
-    .replace(/İ/g, 'I')
-    .replace(/[öÖ]/g, (c) => (c === 'ö' ? 'o' : 'O'))
-    .replace(/[şŞ]/g, (c) => (c === 'ş' ? 's' : 'S'))
-    .replace(/[üÜ]/g, (c) => (c === 'ü' ? 'u' : 'U'))
-    .normalize('NFKD')
-    .replace(/[̀-ͯ]/g, '');
-  const safe = transliterated.replace(/[^A-Za-z0-9._-]+/g, '_').replace(/^_+|_+$/g, '');
-  return safe === '' ? 'export' : safe;
-}
+import { attachmentHeader, parseBody } from './helpers.js';
 
 /** `attachment; filename="<ascii>"; filename*=UTF-8''<utf8>` — tarayıcı UTF-8 adı tercih eder */
 function attachment(reply: FastifyReply, baseName: string, suffix: string): void {
-  const utf8 = `${baseName.trim() || 'export'}${suffix}`;
-  const ascii = `${asciiFileName(baseName)}${suffix}`;
-  reply.header(
-    'Content-Disposition',
-    `attachment; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(utf8)}`,
-  );
+  reply.header('Content-Disposition', attachmentHeader(`${baseName.trim() || 'export'}${suffix}`));
   // UI'ın fetch ile başlığı okuyabilmesi için (Vite proxy ve aynı origin'de zaten görünür; zararsız)
   reply.header('Access-Control-Expose-Headers', 'Content-Disposition');
 }

@@ -56,6 +56,21 @@ export function decodeBody(buf: Buffer, contentType: string | undefined, truncat
   }
 }
 
+const TEXT_TYPE = /^(text\/|application\/(json|xml|javascript|ecmascript|x-www-form-urlencoded|graphql|x-ndjson|yaml|x-yaml|problem\+json|soap\+xml)\b)|[+/](json|xml|yaml)\b/i;
+
+/**
+ * Gövde metin olarak gösterilemeyecek ikili içerik mi (zip, resim, PDF…). `Content-Type` açıkça metinse
+ * (text/*, json, xml…) metindir; değilse ya da yoksa baş kısma bakılır: NUL baytı metinde bulunmaz
+ * (UTF-16 BOM'lu gövde hariç). Yanlış bildirilmiş (`application/octet-stream` ile gelen JSON) yanıt metin kalır.
+ */
+export function isBinaryBody(buf: Buffer, contentType: string | undefined): boolean {
+  if (buf.length === 0) return false;
+  if (contentType && TEXT_TYPE.test(contentType.trim())) return false;
+  const bom = bomCharset(buf);
+  if (bom === 'utf-16le' || bom === 'utf-16be') return false;
+  return buf.subarray(0, 8192).includes(0);
+}
+
 export function contentTypeOf(headers: Array<[string, string]>): string | undefined {
   return headers.find(([name]) => name.toLowerCase() === 'content-type')?.[1];
 }

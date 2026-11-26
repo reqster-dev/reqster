@@ -1187,6 +1187,56 @@ button:focus-visible {
   font-size: 11px;
 }
 
+/* Yanıtı kaydet düğmesi meta satırında rozet boyunda */
+.response-meta .save-response-btn {
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+/* İkili yanıt: gövde editörü yerine bilgi kartı */
+.binary-card {
+  margin-top: 8px;
+  padding: 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  overflow: auto;
+}
+
+.binary-card h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.binary-card .hint {
+  padding: 0;
+}
+
+.binary-card dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.binary-card dt {
+  color: var(--text-dim);
+}
+
+.binary-card dd {
+  margin: 0;
+  word-break: break-all;
+}
+
+.binary-card-file {
+  font-family: Consolas, monospace;
+}
+
 /* Küçük bilgi rozeti (ör. "proxy: Kurum") */
 .meta-badge {
   font-size: 12px;

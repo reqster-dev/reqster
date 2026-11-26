@@ -17,6 +17,8 @@
  * Yerel kapı bekçisi: yabancı Host 421, token'sız API 401 (sayfa token istemez), yabancı Origin'li POST 403,
  * `?reqster_token=` ile açılan sayfa yönlendirmeden 200 döner ve yedek çerezi (SameSite=Lax) kurar.
  */
+import { randomBytes } from 'node:crypto';
+import http from 'node:http';
 import { spawn } from 'node:child_process';
 import { existsSync, mkdtempSync, rmSync } from 'node:fs';
 import net from 'node:net';
@@ -200,6 +202,56 @@ try {
     JSON.stringify(second.result.scriptLogs),
   );
 
+  // --- Yanıtı kaydet: ikili ve büyük yanıtın tamamı geçici dosyadan bayt bayt aynı iner ---
+  const zipBytes = Buffer.concat([Buffer.from([0x50, 0x4b, 0x03, 0x04, 0, 0, 0, 0]), randomBytes(3 * 1024 * 1024)]);
+  const bigText = 'satır ğüşiöç 0123456789\n'.repeat(90_000); // ~2,6 MB, history sınırının (1 MB) üstünde
+  const fixture = http.createServer((req, res) => {
+    if (req.url === '/zip') {
+      res.writeHead(200, { 'content-type': 'application/zip', 'content-disposition': 'attachment; filename="rapor.zip"' });
+      res.end(zipBytes);
+    } else {
+      res.writeHead(200, { 'content-type': 'text/plain; charset=utf-8' });
+      res.end(bigText);
+    }
+  });
+  await new Promise((resolve) => fixture.listen(0, '127.0.0.1', resolve));
+  const fixtureBase = `http://127.0.0.1:${fixture.address().port}`;
+  const run = async (url) =>
+    (
+      await fetch(`${BASE}/api/execute`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', ...AUTH },
+        body: JSON.stringify({ method: 'GET', url, headers: [], params: [], body: null, auth: null }),
+      })
+    ).json();
+  const fetchFile = (id) => fetch(`${BASE}/api/responses/${id}/file`, { headers: AUTH });
+  try {
+    const zip = await run(`${fixtureBase}/zip`);
+    check('ikili yanıt: binary işaretli, gövde metne çevrilmedi', zip.binary === true && zip.body === '' && zip.truncated === false, JSON.stringify({ binary: zip.binary, body: zip.body?.length, truncated: zip.truncated }));
+    check('ikili yanıt: dosya adı Content-Disposition\'dan', zip.bodyFile?.fileName === 'rapor.zip' && zip.bodyFile?.complete === true && zip.bodyFile?.sizeBytes === zipBytes.length, JSON.stringify(zip.bodyFile));
+    const zipFile = await fetchFile(zip.bodyFile?.id);
+    const downloaded = Buffer.from(await zipFile.arrayBuffer());
+    check('ikili yanıt: indirilen dosya bayt bayt aynı', zipFile.status === 200 && downloaded.equals(zipBytes), `http ${zipFile.status} ${downloaded.length} B`);
+    check('ikili yanıt: indirme attachment başlığı taşıyor', (zipFile.headers.get('content-disposition') ?? '').includes('filename="rapor.zip"'), zipFile.headers.get('content-disposition') ?? '');
+
+    const big = await run(`${fixtureBase}/metin`);
+    check('büyük metin: arayüze kırpılmış gider', big.truncated === true && big.binary === undefined && big.body.length > 0 && Buffer.byteLength(big.body) <= 1024 * 1024 + 4, `truncated=${big.truncated} ${Buffer.byteLength(big.body ?? '')} B`);
+    const bigFile = await fetchFile(big.bodyFile?.id);
+    check('büyük metin: dosyada tamamı var, ad adresten + uzantı içerik türünden', (await bigFile.text()) === bigText && big.bodyFile?.fileName === 'metin.txt', JSON.stringify(big.bodyFile));
+
+    const gone = await fetchFile('yok-boyle-bir-yanit');
+    check('olmayan yanıt dosyası 404', gone.status === 404, `http ${gone.status}`);
+    const hist = await (await fetch(`${BASE}/api/history?limit=2`, { headers: AUTH })).json();
+    const zipEntry = (Array.isArray(hist) ? hist : hist.items).find((h) => h.url.endsWith('/zip'));
+    const zipDetail = await (await fetch(`${BASE}/api/history/${zipEntry?.id}`, { headers: AUTH })).json();
+    check('ikili yanıt history\'ye içerik olarak yazılmadı', zipDetail.responseBody === `<application/zip: ${zipBytes.length} B>`, String(zipDetail.responseBody).slice(0, 60));
+  } finally {
+    fixture.close();
+  }
+
+  const noShell = await fetch(`${BASE}/api/shell/pick-file`, { method: 'POST', headers: AUTH });
+  check('dosya seçici: kabuk yokken 501', noShell.status === 501, `http ${noShell.status}`);
+
   const history = await (await fetch(`${BASE}/api/history?limit=5`, { headers: AUTH })).json();
   check('history yazıldı', Array.isArray(history) ? history.length >= 2 : Array.isArray(history?.items) && history.items.length >= 2);
 } catch (err) {
@@ -239,6 +291,29 @@ try {
   const res = await fetch(`${base}api/workspace`, { headers: { 'x-reqster-token': sidecarToken ?? '' } });
   const body = await res.json().catch(() => null);
   check('sidecar: READY portundan /api/workspace 200', res.status === 200 && typeof body?.workspace?.id === 'string', `http ${res.status}`);
+
+  // Dosya seçici sözleşmesi: arayüz ister → stdout'ta REQSTER_PICK_FILE <id> → kabuk sonucu bildirir → arayüz yolu alır
+  const sidecarAuth = { 'x-reqster-token': sidecarToken ?? '' };
+  const pickLine = new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error('REQSTER_PICK_FILE satırı gelmedi')), 5_000);
+    let buf = '';
+    sidecar.proc.stdout.on('data', (d) => {
+      buf += d;
+      const m = /^REQSTER_PICK_FILE (\S+)$/m.exec(buf);
+      if (m) {
+        clearTimeout(timer);
+        resolve(m[1]);
+      }
+    });
+  });
+  const picking = fetch(`${base}api/shell/pick-file`, { method: 'POST', headers: sidecarAuth }).then((x) => x.json());
+  const pickId = await pickLine;
+  const stale = await (await fetch(`${base}api/internal/picked-file`, { method: 'POST', headers: { ...sidecarAuth, 'content-type': 'application/json' }, body: JSON.stringify({ id: 'eski-istek', path: '/etc/passwd' }) })).json();
+  check('dosya seçici: eşleşmeyen kimlik yok sayılır', stale.accepted === false, JSON.stringify(stale));
+  const pickedPath = process.platform === 'win32' ? 'C:\\Belgeler\\rapor.pdf' : '/home/kullanici/rapor.pdf';
+  await fetch(`${base}api/internal/picked-file`, { method: 'POST', headers: { ...sidecarAuth, 'content-type': 'application/json' }, body: JSON.stringify({ id: pickId, path: pickedPath }) });
+  const picked = await picking;
+  check('dosya seçici: kabuğun bildirdiği yol arayüze döndü', picked.path === pickedPath, JSON.stringify(picked));
 
   // Kabuk öldü senaryosu: stdin kapanır → sunucu kendini kapatmalı (sinyal gönderilmez)
   sidecar.proc.stdin.end();

@@ -1,8 +1,11 @@
 import type { KeyValueItem } from '@reqster/shared';
-import { ListChecks, Rows3, X } from 'lucide-react';
-import { useState } from 'react';
+import { FolderOpen, ListChecks, Rows3, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { api } from '../api/client';
+import { isDesktopShell } from '../lib/download';
 import { useT } from '../lib/i18n';
 import { iconProps } from '../lib/icons';
+import { useAppStore } from '../stores/appStore';
 import { VariableInput } from './VariableInput';
 
 interface Props {
@@ -61,6 +64,28 @@ export function KeyValueEditor({ items, onChange, keyPlaceholder, valuePlacehold
     onChange(items.map((item, i) => (i === index ? { ...item, ...patch } : item)));
   };
   const remove = (index: number) => onChange(items.filter((_, i) => i !== index));
+
+  // Kabuktaki dosya diyaloğu dakikalarca açık kalabilir: dönüşte en güncel liste üzerine yazılır
+  const [pickingIndex, setPickingIndex] = useState<number | null>(null);
+  const latest = useRef({ items, onChange });
+  useEffect(() => {
+    latest.current = { items, onChange };
+  });
+  const pickFile = async (index: number) => {
+    setPickingIndex(index);
+    try {
+      const { path } = await api.post<{ path: string | null }>('/shell/pick-file');
+      if (path !== null) {
+        const current = latest.current;
+        current.onChange(current.items.map((item, i) => (i === index ? { ...item, value: path } : item)));
+      }
+    } catch (err) {
+      useAppStore.getState().showNotice(err instanceof Error ? err.message : String(err));
+    } finally {
+      setPickingIndex(null);
+    }
+  };
+  const canPick = allowFile && isDesktopShell();
 
   const rows: Array<KeyValueItem | null> = [...items, null];
 
@@ -140,6 +165,17 @@ export function KeyValueEditor({ items, onChange, keyPlaceholder, valuePlacehold
               onChange={(value) => update(i, { value })}
               collectionId={collectionId}
             />
+            {canPick && item?.type === 'file' && (
+              <button
+                className="icon-btn"
+                onClick={() => void pickFile(i)}
+                disabled={pickingIndex !== null}
+                title={t('kv.file.pick')}
+                aria-label={t('kv.file.pick')}
+              >
+                <FolderOpen {...iconProps} />
+              </button>
+            )}
             <button
               className="icon-btn"
               onClick={() => remove(i)}

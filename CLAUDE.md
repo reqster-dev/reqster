@@ -41,6 +41,7 @@ npm run start             # tek port (7357): app'i build eder + server'ı statik
   olduğu için veri taşınmadı) verir; sunucu `listen`
   sonrası stdout'a `REQSTER_READY http://127.0.0.1:<port>/` yazar, kabuk bunu görünce pencereyi
   yönlendirir (`src-tauri/src/lib.rs`); 30 sn içinde gelmez ya da süreç çökerse hata diyaloğu + çıkış.
+  READY'den sonra stdout'taki `REQSTER_PICK_FILE <id>` satırı dosya seçme diyaloğu isteğidir (bkz. "Dosya seçici").
   Pencere kapanınca sidecar öldürülür; kabuk çökerse sidecar stdin kapanışını görüp kendini kapatır.
   **Ana pencere** `tauri.conf.json`'da `create: false`; `setup`'ta `WebviewWindowBuilder::from_config` + `on_download` ile kurulur.
   **Dışa aktarma "Farklı kaydet"** (`src-tauri/src/download.rs`): frontend dosyayı yine `<a download>` blob'u olarak verir;
@@ -457,7 +458,23 @@ connector'a değil isteğin `AsyncLocalStorage` bağlamına bağlanır (`withPro
   tek menü (Ortam yok / ortamlar / Ortamlar… / Değişkenler…), Ayarlar yalnızca simge, İçe aktar menüsü (Dosyadan… /
   Postman'dan çek…).
 
-Bilinen sınırlamalar: form-data dosya alanı yerel yolla çalışır (dosya seçici yok, dosya her gönderimde diskten okunur, Postman içe aktarımında dosya yolları alınmaz);
+- **Yanıtı kaydet + ikili yanıt** (2026-11-26): arayüze ve history'ye giden gövde hâlâ `history.max_body_bytes` (1 MB) ile kırpılıp
+  metne çevrilir, ama her yanıtın **tam gövdesi** okunurken `<veri klasörü>/tmp/responses/<id>.bin`'e akıtılır
+  (`engine/responseStore.ts` `ResponseFileWriter`: backpressure'lı, üst sınır 200 MB → aşılırsa `complete: false`; en çok 10 dosya /
+  500 MB tutulur, eskiler yeni yanıtla, tümü açılışta silinir; kayıt bellekte). `ExecuteResult.bodyFile {id, fileName, sizeBytes,
+  complete}` + `GET /api/responses/:id/file` (attachment; silinmişse 404 `response.fileGone`). Önerilen ad `suggestFileName`:
+  `Content-Disposition` → adresin son parçası → `response`, uzantı yoksa içerik türünden. **İkili yanıt** (`bodyDecode.ts`
+  `isBinaryBody`: içerik türü metin değilse baştaki 8 KB'ta NUL baytı) metne çevrilmez: `binary: true`, `body: ''`, post-response
+  script'i boş gövde görür, history'ye `<application/zip: N B>` notu yazılır. Arayüz: yanıtta "Kaydet…" (masaüstünde mevcut
+  Farklı kaydet akışı), ikili yanıtta bilgi kartı. Hata/iptal durumunda dosya bırakılmaz. Geçici dosyalar yanıtı olduğu gibi içerir
+  (maskeleme yok); veri klasöründen çıkmaz.
+- **Dosya seçici** (2026-11-26; `core/filePicker.ts`, `src-tauri/src/picker.rs`): form-data dosya satırında masaüstünde "Dosya seç".
+  IPC yok, WebView yolu vermez; akış sidecar üzerinden: arayüz `POST /api/shell/pick-file` (yanıtı bekler, 10 dk zaman aşımı) →
+  sunucu stdout'a `REQSTER_PICK_FILE <id>` → kabuk asenkron `pick_file` diyaloğu → `POST /api/internal/picked-file {id, path|null}`
+  (token'lı; adres/token READY'de `picker::LocalServer` durumuna alınır) → arayüze `{path}`. Aynı anda tek diyalog; kabuk yokken
+  501 (düğme yalnızca `isDesktopShell()`'de görünür). Duman testi sözleşmeyi kabuksuz sınar. Dosya güvenlik kuralı değişmedi.
+
+Bilinen sınırlamalar: form-data dosya alanı yerel yolla çalışır (dosya seçici yalnızca masaüstünde, dosya her gönderimde diskten okunur, Postman içe aktarımında dosya yolları alınmaz);
 script log/test sonuçları history'de kalıcı değil (yalnızca o çalıştırmanın UI state'i);
 `isolated-vm@7` paketi Node ≥26 istiyor ama Node 24.15'te sorunsuz çalışıyor (bkz. `npm warn EBADENGINE`
 uyarısı — zararsız, göz ardı edilebilir).
@@ -482,7 +499,7 @@ Depo: `https://github.com/reqster-dev/reqster` (CI, Release'ler, katkılar).
 - [ ] OpenAPI import
 - [ ] Cookie yönetimi: `engine/cookie-jar.ts` + UI
 - [ ] Secret değerlerin OS keychain'e taşınması (tabloda yalnızca referans)
-- [x] form-data dosya alanı (2026-11-20; yerel yol, bellekte multipart; kalan: dosya seçici, streaming)
+- [x] form-data dosya alanı (2026-11-20; yerel yol, bellekte multipart; dosya seçici 2026-11-26, masaüstünde; kalan: streaming)
 
 ### Birikmiş küçük işler (fazdan bağımsız)
 - [ ] Raw body editöründe `{{var}}` vurgusu (VariableInput overlay tekniğinin textarea'ya uyarlanması)

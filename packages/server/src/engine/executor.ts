@@ -19,7 +19,8 @@ import { getRequest } from '../db/repositories/requests.js';
 import { getSetting } from '../db/repositories/settings.js';
 import { getDefaultWorkspace } from '../db/repositories/workspaces.js';
 import { msg } from '../i18n/context.js';
-import { contentTypeOf, decodeBody } from './bodyDecode.js';
+import { contentTypeOf, decodeBody, isBinaryBody } from './bodyDecode.js';
+import { ResponseFileWriter, type StoredResponse, suggestFileName } from './responseStore.js';
 import { createContext, interpolate, maskSecrets } from './interpolate.js';
 import { createDispatcherFor, describeProxyError, isStaleSocketError, sendWithStaleRetry } from './dispatcher.js';
 import { flattenHeaders } from './scriptHttp.js';
@@ -269,6 +270,8 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
   let charset: string | undefined;
   let sizeBytes = 0;
   let truncated = false;
+  let binary = false;
+  let bodyFile: StoredResponse | undefined;
   let errorMessage: string | undefined;
   let redirects = 0;
 
@@ -299,19 +302,36 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
     status = res.statusCode;
     responseHeaders = flattenHeaders(res.headers);
 
+    // Arayüze/history'ye giden gövde ilk `maxBodyBytes` ile sınırlıdır; tamamı "Yanıtı kaydet" için diske akar
     const chunks: Buffer[] = [];
-    for await (const chunk of res.body) {
-      const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
-      sizeBytes += buf.length;
-      if (!truncated) {
-        chunks.push(buf);
-        if (sizeBytes > maxBodyBytes) truncated = true;
+    const file = new ResponseFileWriter();
+    try {
+      for await (const chunk of res.body) {
+        const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+        sizeBytes += buf.length;
+        if (!truncated) {
+          chunks.push(buf);
+          if (sizeBytes > maxBodyBytes) truncated = true;
+        }
+        await file.write(buf);
       }
+    } catch (err) {
+      await file.discard();
+      throw err;
     }
     probe.endAt = now();
-    const decoded = decodeBody(Buffer.concat(chunks).subarray(0, maxBodyBytes), contentTypeOf(responseHeaders), truncated);
-    responseBody = decoded.text;
-    charset = decoded.charset;
+    bodyFile = await file.finish(suggestFileName(responseHeaders, url));
+    const head = Buffer.concat(chunks).subarray(0, maxBodyBytes);
+    const contentType = contentTypeOf(responseHeaders);
+    if (isBinaryBody(head, contentType)) {
+      // İkili içerik metne çevrilmez (geri dönüşsüz bozulur); arayüz kart gösterir, scriptler boş gövde görür
+      binary = true;
+      truncated = false;
+    } else {
+      const decoded = decodeBody(head, contentType, truncated);
+      responseBody = decoded.text;
+      charset = decoded.charset;
+    }
   } catch (err) {
     const raw = err instanceof Error ? err.message : String(err);
     errorMessage = signal?.aborted
@@ -376,7 +396,12 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
     requestBody: bodyPayload != null ? mask(historyBody ?? (bodyPayload as string)) : null,
     statusCode: status ?? null,
     responseHeaders,
-    responseBody: errorMessage ? null : mask(responseBody),
+    // İkili gövde history'ye yazılmaz; yerine türünü ve boyutunu anlatan kısa bir not düşülür
+    responseBody: errorMessage
+      ? null
+      : binary
+        ? `<${contentTypeOf(responseHeaders)?.split(';')[0]?.trim() || 'binary'}: ${sizeBytes} B>`
+        : mask(responseBody),
     responseSize: errorMessage ? null : sizeBytes,
     truncated,
     error: errorMessage ?? null,
@@ -394,6 +419,10 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
     durationMs,
     truncated,
     ...(charset && charset !== 'utf-8' ? { charset } : {}),
+    ...(binary ? { binary: true } : {}),
+    ...(bodyFile && !errorMessage
+      ? { bodyFile: { id: bodyFile.id, fileName: bodyFile.fileName, sizeBytes: bodyFile.sizeBytes, complete: bodyFile.complete } }
+      : {}),
     error: errorMessage,
     resolvedUrl: url.toString(),
     unresolvedVariables: [...ctx.unresolved],

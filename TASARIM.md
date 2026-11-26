@@ -257,7 +257,7 @@ CREATE TABLE history (
 CREATE INDEX idx_history_time ON history(workspace_id, executed_at DESC);
 ```
 
-**Saklama politikası:** Gövdeler için üst limit (varsayılan 1 MB; üstü kırpılır ve `truncated=1` işaretlenir). Otomatik temizlik: workspace başına son N kayıt (varsayılan 1000) veya X gün — kullanıcı ayarı. Temizlik uygulama açılışında ve periyodik olarak koşar.
+**Saklama politikası:** Gövdeler için üst limit (varsayılan 1 MB; üstü kırpılır ve `truncated=1` işaretlenir). Bu sınır arayüze dönen gövde için de geçerlidir; yanıtın **tam gövdesi** history'ye değil, "Yanıtı kaydet" için veri klasöründeki geçici dosyaya akar (`engine/responseStore.ts`: en çok 200 MB/yanıt, son 10 yanıt / 500 MB, açılışta temizlenir; `GET /api/responses/:id/file`). İkili yanıt (zip, resim, PDF) metne çevrilmez, history'ye yalnızca `<tür: N B>` notu düşer: metne çevirmek içeriği geri dönüşsüz bozar ve history'yi şişirirdi. Geçici dosyalar maskelenmez (yanıtın aslıdır), bu yüzden kalıcı tutulmaz. Otomatik temizlik: workspace başına son N kayıt (varsayılan 1000) veya X gün — kullanıcı ayarı. Temizlik uygulama açılışında ve periyodik olarak koşar.
 
 ### 4.4 Yardımcı Tablolar
 

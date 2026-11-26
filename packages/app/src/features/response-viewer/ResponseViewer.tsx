@@ -1,6 +1,8 @@
-import { CircleCheck, CircleX } from 'lucide-react';
+import type { ResponseBodyFile } from '@reqster/shared';
+import { CircleCheck, CircleX, Download } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { CodeEditor } from '../../components/LazyCodeEditor';
+import { downloadFromApi, isDesktopShell } from '../../lib/download';
 import { formatByLanguage, languageFromContentType, sniffLanguage } from '../../lib/formatters';
 import { useT } from '../../lib/i18n';
 import { iconProps } from '../../lib/icons';
@@ -21,6 +23,37 @@ function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+}
+
+/** Masaüstünde "Kaydet…", tarayıcıda "İndir" (dışa aktarma düğmeleriyle aynı adlandırma) */
+function saveLabelKey(): 'export.save' | 'export.download' {
+  return isDesktopShell() ? 'export.save' : 'export.download';
+}
+
+/** Sunucudaki geçici yanıt dosyasını indirir; dosya silinmişse (404) sunucunun mesajı bildirim olur */
+function SaveResponseButton({ file }: { file: ResponseBodyFile }) {
+  const t = useT();
+  const [busy, setBusy] = useState(false);
+  const save = async () => {
+    setBusy(true);
+    try {
+      await downloadFromApi(`/responses/${encodeURIComponent(file.id)}/file`, file.fileName);
+    } catch (err) {
+      useAppStore.getState().showNotice(err instanceof Error ? err.message : String(err));
+    } finally {
+      setBusy(false);
+    }
+  };
+  return (
+    <button
+      className="ghost-btn save-response-btn"
+      onClick={() => void save()}
+      disabled={busy}
+      title={file.complete ? t('response.save.title') : t('response.save.partial')}
+    >
+      <Download {...iconProps} /> {busy ? t('export.downloading') : t(saveLabelKey())}
+    </button>
+  );
 }
 
 /** Gönderim başladığından beri geçen süreyi canlı gösterir */
@@ -76,6 +109,7 @@ export function ResponseViewer() {
   }
 
   const failedTests = response.testResults.filter((t) => !t.passed).length;
+  const binaryCard = response.binary === true && !response.error;
 
   return (
     <div className="response-viewer">
@@ -99,7 +133,14 @@ export function ResponseViewer() {
           !response.scriptError && <span className="meta-item">{response.durationMs} ms</span>
         )}
         {!response.scriptError && <span className="meta-item">{formatSize(response.sizeBytes)}</span>}
-        {response.truncated && <span className="meta-item warn">{t('response.truncated')}</span>}
+        {response.truncated && (
+          <span
+            className="meta-item warn"
+            title={response.bodyFile ? t('response.truncated.saveHint', { action: t(saveLabelKey()) }) : undefined}
+          >
+            {t('response.truncated')}
+          </span>
+        )}
         {response.charset && (
           <span className="meta-badge" title={t('response.charset.title', { charset: response.charset })}>
             {response.charset}
@@ -120,6 +161,8 @@ export function ResponseViewer() {
             {t('response.tests', { passed: response.testResults.length - failedTests, total: response.testResults.length })}
           </span>
         )}
+        {/* İkili yanıtta Body sekmesindeki kart aynı düğmeyi taşır; iki kez görünmesin */}
+        {response.bodyFile && !(binaryCard && tab === 'body') && <SaveResponseButton file={response.bodyFile} />}
         <span className="meta-url" title={response.resolvedUrl}>
           {response.resolvedUrl}
         </span>
@@ -138,7 +181,7 @@ export function ResponseViewer() {
         <button className={`tab ${tab === 'tests' ? 'active' : ''}`} onClick={() => setTab('tests')}>
           {t('response.tab.tests')} {response.testResults.length > 0 && `(${response.testResults.length - failedTests}/${response.testResults.length})`}
         </button>
-        {tab === 'body' && !response.error && (
+        {tab === 'body' && !response.error && !binaryCard && (
           <div className="view-toggle" role="group" aria-label={t('response.view.label')}>
             <button className={rawView ? '' : 'active'} aria-pressed={!rawView} onClick={() => setRawView(false)}>
               {t('response.view.pretty')}
@@ -158,6 +201,24 @@ export function ResponseViewer() {
       {tab === 'body' &&
         (response.error ? (
           <pre className="response-body error-text">{response.error}</pre>
+        ) : binaryCard ? (
+          <div className="binary-card">
+            <h3>{t('response.binary.title')}</h3>
+            <p className="hint">{t('response.binary.hint')}</p>
+            <dl>
+              <dt>{t('response.binary.contentType')}</dt>
+              <dd>{contentType?.split(';')[0]?.trim() || '—'}</dd>
+              <dt>{t('response.binary.size')}</dt>
+              <dd>{formatSize(response.bodyFile?.sizeBytes ?? response.sizeBytes)}</dd>
+              {response.bodyFile && (
+                <>
+                  <dt>{t('response.binary.fileName')}</dt>
+                  <dd className="binary-card-file">{response.bodyFile.fileName}</dd>
+                </>
+              )}
+            </dl>
+            {response.bodyFile && <SaveResponseButton file={response.bodyFile} />}
+          </div>
         ) : (
           <CodeEditor
             className="response-body-editor"

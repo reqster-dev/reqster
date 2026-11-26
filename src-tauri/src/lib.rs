@@ -20,6 +20,7 @@ use tauri_plugin_shell::ShellExt;
 mod bundle_name;
 mod download;
 mod logging;
+mod picker;
 mod update;
 
 /// Sidecar'ın hazır olduğunu bildiren stdout satırının öneki (sözleşme §2).
@@ -69,6 +70,7 @@ pub fn run() {
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
+        .manage(picker::LocalServer::default())
         .manage(Sidecar {
             child: Mutex::new(None),
             closing: AtomicBool::new(false),
@@ -212,6 +214,7 @@ fn watch_sidecar(app: AppHandle, mut rx: tauri::async_runtime::Receiver<CommandE
                             if token.is_some() { "var" } else { "yok" }
                         );
                         watch.ready.store(true, Ordering::SeqCst);
+                        app.state::<picker::LocalServer>().set(base.clone(), token.clone());
                         // Pencere açılış ekranında kalır: önce güncelleme denetlenir (en fazla birkaç sn), sonra
                         // `open_app` uygulamaya geçirir (bkz. update.rs). Zorunlu güncelleme reddedilirse hiç geçmez.
                         let open_app = {
@@ -228,6 +231,8 @@ fn watch_sidecar(app: AppHandle, mut rx: tauri::async_runtime::Receiver<CommandE
                             })
                         };
                         update::startup(app.clone(), base, token, open_app);
+                    } else if let Some(id) = line.strip_prefix(picker::PICK_FILE_PREFIX) {
+                        picker::pick_file(&app, id.trim().to_owned());
                     } else if !line.is_empty() {
                         crate::rlog!("[sidecar] {line}");
                     }

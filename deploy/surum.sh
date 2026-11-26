@@ -6,6 +6,8 @@
 #   rc      → mevcut sürümün bir sonraki rc'si (1.0.0-rc.6 → 1.0.0-rc.7; 1.0.0 → 1.0.1-rc.0)
 #   patch|minor|major → kararlı sürüm (1.0.0-rc.7 + patch → 1.0.0)
 #   X.Y.Z   → doğrudan bu sürüm
+#   Kararlı sürümde CHANGELOG.md ve CHANGELOG.tr.md'deki "## [Unreleased]" dolu olmalıdır (deploy/changelog.sh):
+#   bölüm sürüm başlığına taşınır, Release notuna ve uygulamanın güncelleme penceresine oradan gider.
 #   --zorunlu → zorunlu güncelleme: bu sürümün altındaki masaüstü kurulumları güncellenmeden açılmaz. Commit'e
 #               `Zorunlu-Guncelleme: evet` satırı yazılır; release.yml Release notuna işaret koyar, site yayını
 #               manifeste `minimumVersion` yazar (en yüksek işaretli sürüm).
@@ -52,6 +54,11 @@ new=$(node -e '
   else { if (rc === undefined || kind !== "patch") { if (kind === "major") { maj++; min = 0; pat = 0; } else if (kind === "minor") { min++; pat = 0; } else pat++; } rc = undefined; }
   console.log(rc === undefined ? `${maj}.${min}.${pat}` : `${maj}.${min}.${pat}-rc.${rc}`);
 ' "$old" "${bump[0]}")
+# Kararlı sürümde değişiklik günlüğü zorunlu: iki dosyadaki "## [Unreleased]" bölümü bu sürümün başlığına taşınır
+# (boşsa burada durulur, hiçbir dosya değişmez). Önsürümler (rc) günlüğe dokunmaz; Release notları Unreleased'i gösterir.
+if [[ "$new" != *-* ]]; then
+  deploy/changelog.sh cut "$new" "$(date -u +%F)"
+fi
 node -e '
   const fs = require("fs"); const v = process.argv[1];
   const write = (f, obj) => fs.writeFileSync(f, JSON.stringify(obj, null, 2) + "\n");
@@ -76,7 +83,7 @@ msg=$(mktemp); trap 'rm -f "$msg"' EXIT
   [[ -n "${SURUM_COMMIT_TRAILERS:-}" ]] && printf '\n%s\n' "$SURUM_COMMIT_TRAILERS"
   true
 } > "$msg"
-git add package.json package-lock.json packages/*/package.json
+git add package.json package-lock.json packages/*/package.json CHANGELOG.md CHANGELOG.tr.md
 git commit -q -s -F "$msg"   # DCO: Signed-off-by (CONTRIBUTING.md)
 git tag -a "v$new" -m "Reqster $new"
 echo "commit: $(git rev-parse --short HEAD)  etiket: v$new$( (( required )) && echo '  (ZORUNLU güncelleme)')"

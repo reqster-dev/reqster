@@ -33,6 +33,8 @@ The desktop shell (`src-tauri/`) additionally needs Rust stable; see the README 
   `node:vm` or `eval`.
 - **UI:** colors only from the theme tokens in `styles.css`; icons from `lucide-react`; no hard-coded text.
 - Keep pull requests focused; describe what changed and how you verified it.
+- If the change is visible to users, add a line under `## [Unreleased]` in both `CHANGELOG.md` (English) and
+  `CHANGELOG.tr.md` (Turkish). If you do not write Turkish, add the English line only and say so; a maintainer will translate.
 
 ## Developer Certificate of Origin (DCO)
 

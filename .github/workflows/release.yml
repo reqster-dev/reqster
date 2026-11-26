@@ -222,6 +222,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       V: ${{ needs.meta.outputs.app_version }}
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           path: dist
@@ -241,6 +242,11 @@ jobs:
           System Settings → Privacy & Security → Open Anyway on first launch. \`*.sig\` and \`*.app.tar.gz\` files are
           used by the in-app updater.
           EOF
+          # "What's new" comes first, taken from CHANGELOG.md / CHANGELOG.tr.md (deploy/changelog.sh). The Turkish
+          # part sits between markers; the download site copies it into the updater manifest and the app shows
+          # it in the update dialog.
+          deploy/changelog.sh notes "$V" > changes.md
+          cat changes.md notes.md > body.md && mv body.md notes.md
           # Mandatory update (deploy/surum.sh --zorunlu writes this trailer into the version commit): the marker
           # below makes the download site put this version as `minimumVersion` into the updater manifest, so
           # older desktop installs must update before they open. Adding the marker to an existing Release later

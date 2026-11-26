@@ -122,7 +122,8 @@ npm run start             # tek port (7357): app'i build eder + server'ı statik
   Eklendi/Değişti/Düzeltildi/Güvenlik). `deploy/changelog.sh`: `cut` (surum.sh çağırır; kararlı sürümde Unreleased'i sürüm
   başlığına taşır, boşsa sürüm çıkmaz; rc dokunmaz), `notes` (release.yml çağırır; Release notunun başına "What's new" + işaretli
   Türkçe blok koyar). Türkçe blok site üzerinden updater manifestinin `notes`'una, oradan güncelleme penceresine gider (ilk 300
-  karakter, düz metin): en önemli madde başa, kısa yazılır. Sürümleme: görünür yeni özellik → minor, yalnızca düzeltme/bağımlılık → patch.
+  karakter, düz metin): en önemli madde başa, kısa yazılır. Yayınlanmış bir sürümün günlüğü düzeltilip main'e push edilince `release-notes.yml` o Release'in notunu eşitler
+  (`changelog.sh merge`; "## Downloads" altı aynen kalır); güncelleme penceresindeki not için site yayını elle yenilenir. Sürümleme: görünür yeni özellik → minor, yalnızca düzeltme/bağımlılık → patch.
   Sürüm çıkarma tek komuttur: `npm run release rc|patch|minor|major|X.Y.Z` (`deploy/surum.sh`): dört
   manifest + package-lock yükselir, `Sürüm X` commit'i ve `vX` etiketi atılır, main + etiket push edilir
   (temiz ağaç ve `main` zorunlu; `--no-push` ile yalnızca yerel; `npm version` bilerek kullanılmaz, bkz. betik).

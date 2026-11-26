@@ -4,6 +4,8 @@
 #   deploy/changelog.sh section <dosya> <sürüm|Unreleased>   o başlığın altındaki metni yazdırır (yoksa boş)
 #   deploy/changelog.sh notes <sürüm>                        Release notunun başına konacak "What's new" bloğu
 #                                                            (sürüm bölümü yoksa Unreleased; ikisi de boşsa çıktı yok)
+#   deploy/changelog.sh merge <sürüm> <gövde dosyası>        var olan Release gövdesini güncel "What's new" bloğuyla yazdırır
+#                                                            (release-notes.yml: günlük düzeltilince Release notları eşitlenir)
 #   deploy/changelog.sh cut <sürüm> <YYYY-AA-GG>             iki dosyada da "## [Unreleased]" altındakileri
 #                                                            "## [sürüm] - tarih" başlığına taşır; biri boşsa hata
 #
@@ -45,6 +47,18 @@ case "${1:-}" in
     fi
     printf '## Downloads\n\n'
     ;;
+  merge)
+    # Var olan bir Release gövdesinin başındaki bloğu günlükteki güncel haliyle değiştirir (yoksa başa ekler);
+    # "## Downloads" başlığından sonrası (dosya tablosu, zorunlu güncelleme işareti) aynen kalır.
+    old=$(tr -d '\r' < "$3")
+    if grep -q '^## Downloads$' <<<"$old"; then
+      rest=$(awk 'found { print } /^## Downloads$/ { found = 1 }' <<<"$old")
+    else
+      rest=$old
+    fi
+    "$0" notes "$2"
+    printf '%s\n' "$rest" | sed '/./,$!d'
+    ;;
   cut)
     ver=$2; date=$3
     for f in "${FILES[@]}"; do
@@ -63,6 +77,6 @@ case "${1:-}" in
     done
     ;;
   *)
-    sed -n '2,10p' "$0" | sed 's/^# \{0,1\}//'; exit 2
+    sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'; exit 2
     ;;
 esac

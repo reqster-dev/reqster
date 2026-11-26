@@ -1,0 +1,36 @@
+# Keeps the "What's new" block of published GitHub Releases in sync with CHANGELOG.md / CHANGELOG.tr.md.
+# release.yml writes the block when a Release is created; this workflow rewrites it when the changelog is
+# corrected afterwards (or was written after the fact). Everything below the "## Downloads" heading of a
+# Release (file table, mandatory-update marker) is left untouched. Only versions that have their own section
+# in CHANGELOG.md are updated.
+name: release-notes
+on:
+  push:
+    branches: [main]
+    paths: [CHANGELOG.md, CHANGELOG.tr.md, deploy/changelog.sh, .github/workflows/release-notes.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: release-notes
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync release notes with the changelog
+        run: |
+          set -euo pipefail
+          for tag in $(gh release list -R "$GITHUB_REPOSITORY" --limit 100 --json tagName -q '.[].tagName'); do
+            v=${tag#v}
+            [[ -n "$(deploy/changelog.sh section CHANGELOG.md "$v")" ]] || continue
+            gh release view "$tag" -R "$GITHUB_REPOSITORY" --json body -q .body | tr -d '\r' > old.md
+            deploy/changelog.sh merge "$v" old.md > new.md
+            if cmp -s old.md new.md; then
+              echo "$tag: up to date"
+            else
+              gh release edit "$tag" -R "$GITHUB_REPOSITORY" --notes-file new.md
+              echo "$tag: notes updated"
+            fi
+          done

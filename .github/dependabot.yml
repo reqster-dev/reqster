@@ -8,6 +8,10 @@ updates:
       interval: weekly
     commit-message:
       prefix: deps
+    ignore:
+      # Types must match the Node version the app ships with (.nvmrc), not the newest Node
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
       # Packages that only work when they move together (a lone major bump of one of them cannot build)
       react:

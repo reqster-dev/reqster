@@ -1,0 +1,44 @@
+# Keeps `site-manifest.json` on the latest GitHub Release up to date (deploy/site-manifest.mjs). The download
+# site and the in-app updater read the current version, file names, signatures, update notes and the
+# mandatory-update limit from that one file.
+#
+# It runs after the workflows that create a Release or rewrite its notes (their changes are made with the
+# workflow token and therefore do not fire `release` events), when a maintainer edits a Release by hand, and
+# on demand. The asset is uploaded only when its content changed.
+name: site-manifest
+on:
+  workflow_run:
+    workflows: [release, release-notes]
+    types: [completed]
+  release:
+    types: [published, edited, deleted]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: site-manifest
+jobs:
+  manifest:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Build and upload the manifest
+        run: |
+          set -euo pipefail
+          tag=$(gh release view -R "$GITHUB_REPOSITORY" --json tagName -q .tagName) || { echo "no published release"; exit 0; }
+          node deploy/site-manifest.mjs > site-manifest.json
+          [[ "v$(jq -r .version site-manifest.json)" == "$tag" ]] || { echo "latest release changed while building"; exit 1; }
+          if gh release download "$tag" -R "$GITHUB_REPOSITORY" -p site-manifest.json -O current.json 2>/dev/null \
+            && cmp -s current.json site-manifest.json; then
+            echo "$tag: site-manifest.json up to date"
+          else
+            gh release upload "$tag" site-manifest.json --clobber -R "$GITHUB_REPOSITORY"
+            echo "$tag: site-manifest.json uploaded"
+          fi
+          jq '{version, minimumVersion, files: (.files | keys), updater: (.updater | keys)}' site-manifest.json

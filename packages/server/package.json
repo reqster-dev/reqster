@@ -18,7 +18,7 @@
   "dependencies": {
     "@fastify/static": "^10.1.12",
     "@reqster/shared": "*",
-    "better-sqlite3": "^12.2.0",
+    "better-sqlite3": "^13.2.0",
     "fastify": "^5.2.0",
     "isolated-vm": "^7.0.0",
     "undici": "^8.13.1",

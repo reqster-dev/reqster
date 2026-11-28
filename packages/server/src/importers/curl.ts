@@ -438,7 +438,10 @@ export function parseCurl(command: string): CurlImportResult {
             break;
           }
           // `;type=…` / `;filename=…` ekleri (tırnaksız değerde)
-          if (!v.startsWith('"')) v = v.replace(/;(type|filename|headers|encoder)=.*$/i, '');
+          if (!v.startsWith('"')) {
+            const suffix = v.search(/;(type|filename|headers|encoder)=/i);
+            if (suffix !== -1) v = v.slice(0, suffix);
+          }
           else v = v.replace(/^"(.*)"(;.*)?$/s, '$1');
         }
         formItems.push({ key, value: v, enabled: true });

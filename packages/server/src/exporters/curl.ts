@@ -136,7 +136,8 @@ export function quoteBash(value: string): string {
  * `#` `$` cmd için özel değildir, `{{var}}` okunur kalsın diye kaçılmaz.
  */
 export function quoteCmd(value: string): string {
-  const crt = value.replace(/(\\*)"/g, '$1$1\\"').replace(/(\\+)$/, '$1$1');
+  // Geriye bakış: eşleşme yalnızca ters bölü dizisinin başından denenir (uzun dizide karesel geri izleme olmasın)
+  const crt = value.replace(/(?<!\\)(\\*)"/g, '$1$1\\"').replace(/(?<!\\)(\\+)$/, '$1$1');
   return (
     '^"' +
     crt

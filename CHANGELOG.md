@@ -11,6 +11,7 @@ dependency updates the patch version. Türkçesi: [CHANGELOG.tr.md](CHANGELOG.tr
 - The application identifier is now `dev.reqster.desktop` (was `tr.talhacigdem.reqly`). Your data and updates are unaffected; the old identifier's WebView cache is removed on first start.
 
 ### Fixed
+- Copying a request as cURL (cmd) or pasting a cURL command no longer stalls on very long runs of backslashes or `;type=` suffixes.
 - Turkish wording: the suffixes after the app name follow its pronunciation ("Reqster'ı").
 
 ## [1.1.1] - 2026-11-28

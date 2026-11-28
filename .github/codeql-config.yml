@@ -1,0 +1,5 @@
+# The server listens on loopback only and every /api call needs the per-session token
+# (packages/server/src/security/localGuard.ts), so there is no remote caller to rate-limit.
+query-filters:
+  - exclude:
+      id: js/missing-rate-limiting

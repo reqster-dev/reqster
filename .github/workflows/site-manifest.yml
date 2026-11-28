@@ -3,8 +3,8 @@
 # mandatory-update limit from that one file.
 #
 # It runs after the workflows that create a Release or rewrite its notes (their changes are made with the
-# workflow token and therefore do not fire `release` events), when a maintainer edits a Release by hand, and
-# on demand. The asset is uploaded only when its content changed.
+# workflow token and therefore do not fire `release` events), when a maintainer edits a Release by hand, when
+# the generator itself changes, and on demand. The asset is uploaded only when its content changed.
 name: site-manifest
 on:
   workflow_run:
@@ -12,6 +12,9 @@ on:
     types: [completed]
   release:
     types: [published, edited, deleted]
+  push:
+    branches: [main]
+    paths: [deploy/site-manifest.mjs, .github/workflows/site-manifest.yml]
   workflow_dispatch:
 permissions:
   contents: write

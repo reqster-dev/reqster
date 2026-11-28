@@ -57,7 +57,7 @@ export function VariableInput({
 }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
   const resolved = useResolvedVariables(collectionId);
 

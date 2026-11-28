@@ -19,7 +19,7 @@ export function CurlCopyMenu() {
   const t = useT();
   const showNotice = useAppStore((s) => s.showNotice);
   const [copied, setCopied] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout>>();
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => () => clearTimeout(timer.current), []);
 

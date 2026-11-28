@@ -5,7 +5,7 @@ bileşenleri içerir; her biri kendi lisansıyla dağıtılır.
 
 Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle düzenlenmez.
 
-## Bileşenler (461)
+## Bileşenler (424)
 
 - Node.js 24.22.2 — MIT (+ gömülü bileşenlerin lisansları) (nodejs.org — sidecar ikilisi)
 - Inter InterVariable — OFL-1.1 (https://github.com/rsms/inter — packages/app/public/fonts)
@@ -20,7 +20,7 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - bit-set 0.8.0 — Apache-2.0 OR MIT (crates.io)
 - bit-vec 0.8.0 — Apache-2.0 OR MIT (crates.io)
 - bitflags 2.13.2 — MIT OR Apache-2.0 (crates.io)
-- block-buffer 0.10.4 — MIT OR Apache-2.0 (crates.io)
+- block-buffer 0.12.1 — MIT OR Apache-2.0 (crates.io)
 - block2 0.6.2 — MIT (crates.io)
 - brotli 9.1.1 — BSD-3-Clause AND MIT (crates.io)
 - brotli-decompressor 6.3.1 — BSD-3-Clause/MIT (crates.io)
@@ -33,6 +33,7 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - cfb 0.14.0 — MIT (crates.io)
 - cfg-if 1.0.5 — MIT OR Apache-2.0 (crates.io)
 - chrono 0.4.45 — MIT OR Apache-2.0 (crates.io)
+- const-oid 0.10.3 — Apache-2.0 OR MIT (crates.io)
 - constant_time_eq 0.6.1 — CC0-1.0 OR MIT-0 OR Apache-2.0 (crates.io)
 - cookie 0.18.2 — MIT OR Apache-2.0 (crates.io)
 - core_detect 1.0.0 — MIT/Apache-2.0 (crates.io)
@@ -41,11 +42,11 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - core-foundation-sys 0.8.7 — MIT OR Apache-2.0 (crates.io)
 - core-graphics 0.25.0 — MIT OR Apache-2.0 (crates.io)
 - core-graphics-types 0.2.0 — MIT OR Apache-2.0 (crates.io)
-- cpufeatures 0.2.17 — MIT OR Apache-2.0 (crates.io)
+- cpufeatures 0.3.1 — MIT OR Apache-2.0 (crates.io)
 - crc32fast 1.5.5 — MIT OR Apache-2.0 (crates.io)
 - crossbeam-channel 0.5.17 — MIT OR Apache-2.0 (crates.io)
 - crossbeam-utils 0.8.23 — MIT OR Apache-2.0 (crates.io)
-- crypto-common 0.1.7 — MIT OR Apache-2.0 (crates.io)
+- crypto-common 0.2.2 — MIT OR Apache-2.0 (crates.io)
 - cssparser 0.37.0 — MPL-2.0 (crates.io)
 - cssparser-macros 0.7.1 — MPL-2.0 (crates.io)
 - ctor 1.0.13 — Apache-2.0 OR MIT (crates.io)
@@ -55,7 +56,7 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - deranged 0.5.9 — MIT OR Apache-2.0 (crates.io)
 - derive_more 2.1.1 — MIT (crates.io)
 - derive_more-impl 2.1.1 — MIT (crates.io)
-- digest 0.10.7 — MIT OR Apache-2.0 (crates.io)
+- digest 0.11.3 — MIT OR Apache-2.0 (crates.io)
 - dirs 7.0.0 — MIT OR Apache-2.0 (crates.io)
 - dirs-sys 0.5.0 — MIT OR Apache-2.0 (crates.io)
 - dispatch2 0.3.1 — Zlib OR Apache-2.0 OR MIT (crates.io)
@@ -88,7 +89,6 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - futures-sink 0.3.34 — MIT OR Apache-2.0 (crates.io)
 - futures-task 0.3.34 — MIT OR Apache-2.0 (crates.io)
 - futures-util 0.3.34 — MIT OR Apache-2.0 (crates.io)
-- generic-array 0.14.7 — MIT (crates.io)
 - getrandom 0.2.17 — MIT OR Apache-2.0 (crates.io)
 - getrandom 0.3.4 — MIT OR Apache-2.0 (crates.io)
 - getrandom 0.4.3 — MIT OR Apache-2.0 (crates.io)
@@ -102,6 +102,7 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - http-body 1.1.0 — MIT (crates.io)
 - http-body-util 0.1.5 — MIT (crates.io)
 - httparse 1.10.1 — MIT OR Apache-2.0 (crates.io)
+- hybrid-array 0.4.15 — MIT OR Apache-2.0 (crates.io)
 - hyper 1.12.0 — MIT (crates.io)
 - hyper-rustls 0.27.10 — Apache-2.0 OR ISC OR MIT (crates.io)
 - hyper-util 0.1.21 — MIT (crates.io)
@@ -215,7 +216,7 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - serialize-to-javascript 0.1.2 — MIT OR Apache-2.0 (crates.io)
 - serialize-to-javascript-impl 0.1.2 — MIT OR Apache-2.0 (crates.io)
 - servo_arc 0.4.3 — MIT OR Apache-2.0 (crates.io)
-- sha2 0.10.9 — MIT OR Apache-2.0 (crates.io)
+- sha2 0.11.2 — MIT OR Apache-2.0 (crates.io)
 - shared_child 1.1.2 — MIT (crates.io)
 - simd-adler32 0.3.10 — MIT (crates.io)
 - simdutf8 0.1.5 — MIT OR Apache-2.0 (crates.io)
@@ -237,16 +238,16 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - system-configuration-sys 0.6.0 — MIT OR Apache-2.0 (crates.io)
 - tao 0.37.2 — Apache-2.0 (crates.io)
 - tar 0.4.46 — MIT OR Apache-2.0 (crates.io)
-- tauri 2.12.5 — Apache-2.0 OR MIT (crates.io)
-- tauri-codegen 2.7.4 — Apache-2.0 OR MIT (crates.io)
-- tauri-macros 2.7.4 — Apache-2.0 OR MIT (crates.io)
+- tauri 2.12.7 — Apache-2.0 OR MIT (crates.io)
+- tauri-codegen 2.7.6 — Apache-2.0 OR MIT (crates.io)
+- tauri-macros 2.7.6 — Apache-2.0 OR MIT (crates.io)
 - tauri-plugin-dialog 2.8.4 — Apache-2.0 OR MIT (crates.io)
 - tauri-plugin-fs 2.7.1 — Apache-2.0 OR MIT (crates.io)
 - tauri-plugin-shell 2.6.0 — Apache-2.0 OR MIT (crates.io)
 - tauri-plugin-updater 2.14.1 — Apache-2.0 OR MIT (crates.io)
-- tauri-runtime 2.12.2 — Apache-2.0 OR MIT (crates.io)
-- tauri-runtime-wry 2.12.3 — Apache-2.0 OR MIT (crates.io)
-- tauri-utils 2.10.2 — Apache-2.0 OR MIT (crates.io)
+- tauri-runtime 2.12.4 — Apache-2.0 OR MIT (crates.io)
+- tauri-runtime-wry 2.12.5 — Apache-2.0 OR MIT (crates.io)
+- tauri-utils 2.10.4 — Apache-2.0 OR MIT (crates.io)
 - tempfile 3.27.0 — MIT OR Apache-2.0 (crates.io)
 - tendril 0.5.1 — MIT OR Apache-2.0 (crates.io)
 - thiserror 2.0.21 — MIT OR Apache-2.0 (crates.io)
@@ -334,7 +335,7 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - @codemirror/search 6.7.2 — MIT (npm)
 - @codemirror/state 6.7.6 — MIT (npm)
 - @codemirror/streamparser 6.0.0 — MIT (npm)
-- @codemirror/view 6.43.15 — MIT (npm)
+- @codemirror/view 6.44.2 — MIT (npm)
 - @fastify/accept-negotiator 2.1.2 — MIT (npm)
 - @fastify/ajv-compiler 4.0.8 — MIT (npm)
 - @fastify/deepmerge 3.2.4 — MIT (npm)
@@ -355,34 +356,23 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - @lukeed/ms 2.0.2 — MIT (npm)
 - @marijn/find-cluster-break 1.0.4 — MIT (npm)
 - @pinojs/redact 0.4.0 — MIT (npm)
-- @types/prop-types 15.7.15 — MIT (npm)
-- @types/react 18.3.32 — MIT (npm)
+- @types/react 19.3.3 — MIT (npm)
 - abstract-logging 2.0.1 — MIT (npm)
 - ajv 8.20.0 — MIT (npm)
 - ajv-formats 3.0.1 — MIT (npm)
 - atomic-sleep 1.0.0 — MIT (npm)
 - avvio 9.3.1 — MIT (npm)
 - balanced-match 4.0.4 — MIT (npm)
-- base64-js 1.5.1 — MIT (npm)
-- better-sqlite3 12.11.1 — MIT (npm)
-- bindings 1.5.0 — MIT (npm)
-- bl 4.1.0 — MIT (npm)
+- better-sqlite3 13.2.0 — MIT (npm)
 - brace-expansion 5.1.0 — MIT (npm)
-- buffer 5.7.1 — MIT (npm)
-- chownr 1.1.4 — ISC (npm)
 - codemirror 6.0.2 — MIT (npm)
 - content-disposition 3.1.0 — MIT (npm)
 - cookie 2.0.2 — MIT (npm)
 - crelt 1.0.7 — MIT (npm)
 - csstype 3.2.4 — MIT (npm)
-- decompress-response 6.0.0 — MIT (npm)
-- deep-extend 0.6.0 — MIT (npm)
 - depd 2.0.0 — MIT (npm)
 - dequal 2.0.3 — MIT (npm)
-- detect-libc 2.1.2 — Apache-2.0 (npm)
-- end-of-stream 1.4.5 — MIT (npm)
 - escape-html 1.0.3 — MIT (npm)
-- expand-template 2.0.3 — (MIT OR WTFPL) (npm)
 - fast-decode-uri-component 1.0.1 — MIT (npm)
 - fast-deep-equal 3.1.3 — MIT (npm)
 - fast-json-stringify 7.3.10 — MIT (npm)
@@ -392,80 +382,53 @@ Bu dosya `node launcher/third-party-notices.mjs --cargo` ile üretilir, elle dü
 - fastify 5.12.8 — MIT (npm)
 - fastify-plugin 6.0.1 — MIT (npm)
 - fastq 1.20.3 — ISC (npm)
-- file-uri-to-path 1.0.0 — MIT (npm)
 - find-my-way 9.10.2 — MIT (npm)
-- fs-constants 1.0.0 — MIT (npm)
-- github-from-package 0.0.0 — MIT (npm)
 - glob 14.0.6 — BlueOak-1.0.0 (npm)
 - http-errors 2.0.1 — MIT (npm)
-- ieee754 1.2.1 — BSD-3-Clause (npm)
 - inherits 2.0.4 — ISC (npm)
-- ini 1.3.8 — ISC (npm)
 - ipaddr.js 2.5.0 — MIT (npm)
 - isolated-vm 7.0.2 — ISC (npm)
-- js-tokens 4.0.0 — MIT (npm)
 - json-schema-ref-resolver 3.0.1 — MIT (npm)
 - json-schema-traverse 1.0.0 — MIT (npm)
 - light-my-request 6.8.1 — BSD-3-Clause (npm)
-- loose-envify 1.4.0 — MIT (npm)
 - lru-cache 11.5.3 — BlueOak-1.0.0 (npm)
-- lucide-react 1.72.0 — ISC (npm)
+- lucide-react 1.80.0 — ISC (npm)
 - mime 3.0.0 — MIT (npm)
-- mimic-response 3.1.0 — MIT (npm)
 - minimatch 11.0.9 — BlueOak-1.0.0 (npm)
-- minimist 1.2.8 — MIT (npm)
 - minipass 7.1.3 — BlueOak-1.0.0 (npm)
-- mkdirp-classic 0.5.3 — MIT (npm)
-- napi-build-utils 2.0.0 — MIT (npm)
-- node-abi 3.104.0 — MIT (npm)
+- node-addon-api 8.9.2 — MIT (npm)
 - node-gyp-build 4.8.4 — MIT (npm)
 - on-exit-leak-free 2.1.2 — MIT (npm)
-- once 1.4.0 — ISC (npm)
 - path-scurry 3.0.0 — BlueOak-1.0.0 (npm)
 - pino 10.4.0 — MIT (npm)
 - pino-abstract-transport 3.0.0 — MIT (npm)
 - pino-std-serializers 7.1.0 — MIT (npm)
-- prebuild-install 7.1.3 — MIT (npm)
 - process-warning 5.1.1 — MIT (npm)
-- pump 3.0.4 — MIT (npm)
 - quick-format-unescaped 4.0.4 — MIT (npm)
-- rc 1.2.8 — (BSD-2-Clause OR MIT OR Apache-2.0) (npm)
-- react 18.3.1 — MIT (npm)
-- react-dom 18.3.1 — MIT (npm)
-- readable-stream 3.6.2 — MIT (npm)
+- react 19.3.1 — MIT (npm)
+- react-dom 19.3.1 — MIT (npm)
 - real-require 1.0.0 — MIT (npm)
 - require-from-string 2.0.2 — MIT (npm)
 - ret 0.5.1 — MIT (npm)
 - reusify 1.1.0 — MIT (npm)
 - rfdc 1.4.1 — MIT (npm)
-- safe-buffer 5.2.1 — MIT (npm)
 - safe-regex2 5.1.2 — MIT (npm)
 - safe-stable-stringify 2.5.0 — MIT (npm)
-- scheduler 0.23.2 — MIT (npm)
+- scheduler 0.28.0 — MIT (npm)
 - secure-json-parse 4.1.1 — BSD-3-Clause (npm)
-- semver 7.8.6 — ISC (npm)
 - semver 7.8.6 — ISC (npm)
 - set-cookie-parser 3.2.3 — MIT (npm)
 - setprototypeof 1.2.0 — ISC (npm)
-- simple-concat 1.0.1 — MIT (npm)
-- simple-get 4.0.1 — MIT (npm)
 - sonic-boom 4.2.1 — MIT (npm)
 - split2 4.2.0 — ISC (npm)
 - statuses 2.0.2 — MIT (npm)
-- string_decoder 1.3.0 — MIT (npm)
-- strip-json-comments 2.0.1 — MIT (npm)
 - style-mod 4.1.5 — MIT (npm)
-- tar-fs 2.1.6 — MIT (npm)
-- tar-stream 2.2.0 — MIT (npm)
 - thread-stream 4.2.1 — MIT (npm)
 - toad-cache 3.7.4 — MIT (npm)
 - toidentifier 1.0.1 — MIT (npm)
-- tunnel-agent 0.6.0 — Apache-2.0 (npm)
-- undici 7.30.2 — MIT (npm)
-- util-deprecate 1.0.2 — MIT (npm)
+- undici 8.13.1 — MIT (npm)
 - uuid 11.1.1 — MIT (npm)
 - w3c-keyname 2.2.8 — MIT (npm)
-- wrappy 1.0.2 — ISC (npm)
 - zod 4.6.7 — MIT (npm)
 - zustand 5.1.0 — MIT (npm)
 
@@ -984,12 +947,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 - syn 2.0.119 — MIT OR Apache-2.0 (crates.io)
 - syn 3.0.10 — MIT OR Apache-2.0 (crates.io)
 - sync_wrapper 1.0.2 — Apache-2.0 (crates.io)
-- tauri 2.12.5 — Apache-2.0 OR MIT (crates.io)
-- tauri-codegen 2.7.4 — Apache-2.0 OR MIT (crates.io)
-- tauri-macros 2.7.4 — Apache-2.0 OR MIT (crates.io)
-- tauri-runtime 2.12.2 — Apache-2.0 OR MIT (crates.io)
-- tauri-runtime-wry 2.12.3 — Apache-2.0 OR MIT (crates.io)
-- tauri-utils 2.10.2 — Apache-2.0 OR MIT (crates.io)
+- tauri 2.12.7 — Apache-2.0 OR MIT (crates.io)
+- tauri-codegen 2.7.6 — Apache-2.0 OR MIT (crates.io)
+- tauri-macros 2.7.6 — Apache-2.0 OR MIT (crates.io)
+- tauri-runtime 2.12.4 — Apache-2.0 OR MIT (crates.io)
+- tauri-runtime-wry 2.12.5 — Apache-2.0 OR MIT (crates.io)
+- tauri-utils 2.10.4 — Apache-2.0 OR MIT (crates.io)
 - thiserror 2.0.21 — MIT OR Apache-2.0 (crates.io)
 - thiserror-impl 2.0.21 — MIT OR Apache-2.0 (crates.io)
 - time 0.3.55 — MIT OR Apache-2.0 (crates.io)
@@ -1186,21 +1149,22 @@ END OF TERMS AND CONDITIONS
 - bit-set 0.8.0 — Apache-2.0 OR MIT (crates.io)
 - bit-vec 0.8.0 — Apache-2.0 OR MIT (crates.io)
 - bitflags 2.13.2 — MIT OR Apache-2.0 (crates.io)
-- block-buffer 0.10.4 — MIT OR Apache-2.0 (crates.io)
+- block-buffer 0.12.1 — MIT OR Apache-2.0 (crates.io)
 - bs58 0.5.1 — MIT/Apache-2.0 (crates.io)
 - camino 1.2.6 — MIT OR Apache-2.0 (crates.io)
 - cfg-if 1.0.5 — MIT OR Apache-2.0 (crates.io)
+- const-oid 0.10.3 — Apache-2.0 OR MIT (crates.io)
 - core_detect 1.0.0 — MIT/Apache-2.0 (crates.io)
 - core-foundation 0.10.1 — MIT OR Apache-2.0 (crates.io)
 - core-foundation 0.9.4 — MIT OR Apache-2.0 (crates.io)
 - core-foundation-sys 0.8.7 — MIT OR Apache-2.0 (crates.io)
 - core-graphics 0.25.0 — MIT OR Apache-2.0 (crates.io)
 - core-graphics-types 0.2.0 — MIT OR Apache-2.0 (crates.io)
-- cpufeatures 0.2.17 — MIT OR Apache-2.0 (crates.io)
+- cpufeatures 0.3.1 — MIT OR Apache-2.0 (crates.io)
 - crossbeam-channel 0.5.17 — MIT OR Apache-2.0 (crates.io)
 - crossbeam-utils 0.8.23 — MIT OR Apache-2.0 (crates.io)
-- crypto-common 0.1.7 — MIT OR Apache-2.0 (crates.io)
-- digest 0.10.7 — MIT OR Apache-2.0 (crates.io)
+- crypto-common 0.2.2 — MIT OR Apache-2.0 (crates.io)
+- digest 0.11.3 — MIT OR Apache-2.0 (crates.io)
 - displaydoc 0.2.7 — MIT OR Apache-2.0 (crates.io)
 - embed_plist 1.2.2 — MIT OR Apache-2.0 (crates.io)
 - encoding_rs 0.8.44 — (Apache-2.0 OR MIT) AND BSD-3-Clause (crates.io)
@@ -1217,6 +1181,7 @@ END OF TERMS AND CONDITIONS
 - heck 0.5.0 — MIT OR Apache-2.0 (crates.io)
 - html5ever 0.39.0 — MIT OR Apache-2.0 (crates.io)
 - httparse 1.10.1 — MIT OR Apache-2.0 (crates.io)
+- hybrid-array 0.4.15 — MIT OR Apache-2.0 (crates.io)
 - hyper-rustls 0.27.10 — Apache-2.0 OR ISC OR MIT (crates.io)
 - idna 1.1.0 — MIT OR Apache-2.0 (crates.io)
 - idna_adapter 1.2.2 — Apache-2.0 OR MIT (crates.io)
@@ -1249,7 +1214,7 @@ END OF TERMS AND CONDITIONS
 - serialize-to-javascript 0.1.2 — MIT OR Apache-2.0 (crates.io)
 - serialize-to-javascript-impl 0.1.2 — MIT OR Apache-2.0 (crates.io)
 - servo_arc 0.4.3 — MIT OR Apache-2.0 (crates.io)
-- sha2 0.10.9 — MIT OR Apache-2.0 (crates.io)
+- sha2 0.11.2 — MIT OR Apache-2.0 (crates.io)
 - siphasher 1.0.4 — MIT OR Apache-2.0 (crates.io)
 - smallvec 1.16.5 — MIT OR Apache-2.0 (crates.io)
 - socket2 0.6.5 — MIT OR Apache-2.0 (crates.io)
@@ -1659,10 +1624,10 @@ DEALINGS IN THE SOFTWARE.
 
 ---
 
-- block-buffer 0.10.4 — MIT OR Apache-2.0 (crates.io)
+- block-buffer 0.12.1 — MIT OR Apache-2.0 (crates.io)
 
 ```text
-Copyright (c) 2018-2019 The RustCrypto Project Developers
+Copyright (c) 2018-2025 The RustCrypto Project Developers
 
 Permission is hereby granted, free of charge, to any
 person obtaining a copy of this software and associated
@@ -2080,6 +2045,39 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ~~~~
+```
+
+---
+
+- const-oid 0.10.3 — Apache-2.0 OR MIT (crates.io)
+- cpufeatures 0.3.1 — MIT OR Apache-2.0 (crates.io)
+
+```text
+Copyright (c) 2020-2026 The RustCrypto Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
 ```
 
 ---
@@ -2545,38 +2543,6 @@ DEALINGS IN THE SOFTWARE.
 
 ---
 
-- cpufeatures 0.2.17 — MIT OR Apache-2.0 (crates.io)
-
-```text
-Copyright (c) 2020-2025 The RustCrypto Project Developers
-
-Permission is hereby granted, free of charge, to any
-person obtaining a copy of this software and associated
-documentation files (the "Software"), to deal in the
-Software without restriction, including without
-limitation the rights to use, copy, modify, merge,
-publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software
-is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice
-shall be included in all copies or substantial portions
-of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
-ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
-TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
-SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
-IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
-```
-
----
-
 - crc32fast 1.5.5 — MIT OR Apache-2.0 (crates.io)
 - ctor 1.0.13 — Apache-2.0 OR MIT (crates.io)
 - dpi 0.1.2 — Apache-2.0 AND MIT (crates.io)
@@ -2586,7 +2552,6 @@ DEALINGS IN THE SOFTWARE.
 - hex 0.4.3 — MIT OR Apache-2.0 (crates.io)
 - json-patch 4.2.0 — MIT/Apache-2.0 (crates.io)
 - tao 0.37.2 — Apache-2.0 (crates.io)
-- detect-libc 2.1.2 — Apache-2.0 (npm)
 
 ```text
 Apache License
@@ -3457,10 +3422,10 @@ limitations under the License.
 
 ---
 
-- crypto-common 0.1.7 — MIT OR Apache-2.0 (crates.io)
+- crypto-common 0.2.2 — MIT OR Apache-2.0 (crates.io)
 
 ```text
-Copyright (c) 2021 RustCrypto Developers
+Copyright (c) 2021-2026 RustCrypto Developers
 
 Permission is hereby granted, free of charge, to any
 person obtaining a copy of this software and associated
@@ -4164,9 +4129,10 @@ SOFTWARE.
 
 ---
 
-- digest 0.10.7 — MIT OR Apache-2.0 (crates.io)
+- digest 0.11.3 — MIT OR Apache-2.0 (crates.io)
 
 ```text
+Copyright (c) 2017-2025 RustCrypto Developers
 Copyright (c) 2017 Artyom Pavlov
 
 Permission is hereby granted, free of charge, to any
@@ -5095,34 +5061,6 @@ DEALINGS IN THE SOFTWARE.
 
 ---
 
-- generic-array 0.14.7 — MIT (crates.io)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2015 Bartłomiej Kamiński
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
 - getrandom 0.2.17 — MIT OR Apache-2.0 (crates.io)
 - getrandom 0.3.4 — MIT OR Apache-2.0 (crates.io)
 - getrandom 0.4.3 — MIT OR Apache-2.0 (crates.io)
@@ -5854,6 +5792,38 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+```
+
+---
+
+- hybrid-array 0.4.15 — MIT OR Apache-2.0 (crates.io)
+
+```text
+Copyright (c) 2022-2026 The RustCrypto Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
 ```
 
 ---
@@ -9713,12 +9683,13 @@ SOFTWARE.
 
 ---
 
-- sha2 0.10.9 — MIT OR Apache-2.0 (crates.io)
+- sha2 0.11.2 — MIT OR Apache-2.0 (crates.io)
 
 ```text
-Copyright (c) 2006-2009 Graydon Hoare
-Copyright (c) 2009-2013 Mozilla Foundation
+Copyright (c) 2016-2026 The RustCrypto Project Developers
 Copyright (c) 2016 Artyom Pavlov
+Copyright (c) 2009-2013 Mozilla Foundation
+Copyright (c) 2006-2009 Graydon Hoare
 
 Permission is hereby granted, free of charge, to any
 person obtaining a copy of this software and associated
@@ -10523,12 +10494,12 @@ DEALINGS IN THE SOFTWARE.
 
 ---
 
-- tauri 2.12.5 — Apache-2.0 OR MIT (crates.io)
-- tauri-codegen 2.7.4 — Apache-2.0 OR MIT (crates.io)
-- tauri-macros 2.7.4 — Apache-2.0 OR MIT (crates.io)
-- tauri-runtime 2.12.2 — Apache-2.0 OR MIT (crates.io)
-- tauri-runtime-wry 2.12.3 — Apache-2.0 OR MIT (crates.io)
-- tauri-utils 2.10.2 — Apache-2.0 OR MIT (crates.io)
+- tauri 2.12.7 — Apache-2.0 OR MIT (crates.io)
+- tauri-codegen 2.7.6 — Apache-2.0 OR MIT (crates.io)
+- tauri-macros 2.7.6 — Apache-2.0 OR MIT (crates.io)
+- tauri-runtime 2.12.4 — Apache-2.0 OR MIT (crates.io)
+- tauri-runtime-wry 2.12.5 — Apache-2.0 OR MIT (crates.io)
+- tauri-utils 2.10.4 — Apache-2.0 OR MIT (crates.io)
 
 ```text
 MIT License
@@ -12046,8 +12017,7 @@ Apache License
 - windows-targets 0.53.5 — MIT OR Apache-2.0 (crates.io)
 - windows-threading 0.2.1 — MIT OR Apache-2.0 (crates.io)
 - windows-version 0.1.7 — MIT OR Apache-2.0 (crates.io)
-- @types/prop-types 15.7.15 — MIT (npm)
-- @types/react 18.3.32 — MIT (npm)
+- @types/react 19.3.3 — MIT (npm)
 
 ```text
 MIT License
@@ -12258,7 +12228,7 @@ freely, subject to the following restrictions:
 - @codemirror/search 6.7.2 — MIT (npm)
 - @codemirror/state 6.7.6 — MIT (npm)
 - @codemirror/streamparser 6.0.0 — MIT (npm)
-- @codemirror/view 6.43.15 — MIT (npm)
+- @codemirror/view 6.44.2 — MIT (npm)
 - codemirror 6.0.2 — MIT (npm)
 
 ```text
@@ -12832,35 +12802,7 @@ SOFTWARE.
 
 ---
 
-- base64-js 1.5.1 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2014 Jameson Little
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
-- better-sqlite3 12.11.1 — MIT (npm)
+- better-sqlite3 13.2.0 — MIT (npm)
 
 ```text
 The MIT License (MIT)
@@ -12884,55 +12826,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
-
----
-
-- bindings 1.5.0 — MIT (npm)
-
-```text
-(The MIT License)
-
-Copyright (c) 2012 Nathan Rajlich &lt;nathan@tootallnate.net&gt;
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
----
-
-- bl 4.1.0 — MIT (npm)
-
-```text
-The MIT License (MIT)
-=====================
-
-Copyright (c) 2013-2019 bl contributors
-----------------------------------
-
-*bl contributors listed at <https://github.com/rvagg/bl#contributors>*
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ---
@@ -12963,61 +12856,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
-
----
-
-- buffer 5.7.1 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) Feross Aboukhadijeh, and other contributors.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
-- chownr 1.1.4 — ISC (npm)
-- ini 1.3.8 — ISC (npm)
-- once 1.4.0 — ISC (npm)
-- semver 7.8.6 — ISC (npm)
-- semver 7.8.6 — ISC (npm)
-- wrappy 1.0.2 — ISC (npm)
-
-```text
-The ISC License
-
-Copyright (c) Isaac Z. Schlueter and Contributors
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
-IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ```
 
 ---
@@ -13133,50 +12971,6 @@ SOFTWARE.
 
 ---
 
-- decompress-response 6.0.0 — MIT (npm)
-- mimic-response 3.1.0 — MIT (npm)
-
-```text
-MIT License
-
-Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
----
-
-- deep-extend 0.6.0 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2013-2018, Viacheslav Lotsmanov
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
----
-
 - depd 2.0.0 — MIT (npm)
 
 ```text
@@ -13234,37 +13028,6 @@ THE SOFTWARE.
 
 ---
 
-- end-of-stream 1.4.5 — MIT (npm)
-- pump 3.0.4 — MIT (npm)
-- tar-fs 2.1.6 — MIT (npm)
-- tar-stream 2.2.0 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2014 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
 - escape-html 1.0.3 — MIT (npm)
 
 ```text
@@ -13292,34 +13055,6 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
----
-
-- expand-template 2.0.3 — (MIT OR WTFPL) (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2018 Lars-Magnus Skog
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 ```
 
 ---
@@ -13530,33 +13265,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ---
 
-- file-uri-to-path 1.0.0 — MIT (npm)
-
-```text
-Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
----
-
 - find-my-way 9.10.2 — MIT (npm)
 
 ```text
@@ -13581,60 +13289,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
-
----
-
-- fs-constants 1.0.0 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2018 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
-- github-from-package 0.0.0 — MIT (npm)
-- minimist 1.2.8 — MIT (npm)
-
-```text
-This software is released under the MIT license:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ---
@@ -13738,24 +13392,6 @@ THE SOFTWARE.
 
 ---
 
-- ieee754 1.2.1 — BSD-3-Clause (npm)
-
-```text
-Copyright 2008 Fair Oaks Labs, Inc.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-```
-
----
-
 - inherits 2.0.4 — ISC (npm)
 
 ```text
@@ -13820,34 +13456,6 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
-```
-
----
-
-- js-tokens 4.0.0 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2014, 2015, 2016, 2017, 2018 Simon Lydell
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 ```
 
 ---
@@ -13919,35 +13527,7 @@ The complete list of contributors can be found at:
 
 ---
 
-- loose-envify 1.4.0 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2015 Andres Suarez <zertosh@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
-- lucide-react 1.72.0 — ISC (npm)
+- lucide-react 1.80.0 — ISC (npm)
 
 ```text
 ISC License
@@ -14087,86 +13667,18 @@ software or this license, under any kind of legal claim._**
 
 ---
 
-- mkdirp-classic 0.5.3 — MIT (npm)
+- node-addon-api 8.9.2 — MIT (npm)
 
 ```text
 The MIT License (MIT)
 
-Copyright (c) 2020 James Halliday (mail@substack.net) and Mathias Buus
+Copyright (c) 2017 [Node.js API collaborators](https://github.com/nodejs/node-addon-api#collaborators)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
-- napi-build-utils 2.0.0 — MIT (npm)
-
-```text
-MIT License
-
-Copyright (c) 2018 inspiredware
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-- node-abi 3.104.0 — MIT (npm)
-
-```text
-MIT License
-
-Copyright (c) 2016 Lukas Geiger
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ---
@@ -14298,34 +13810,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-- prebuild-install 7.1.3 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2015 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
 - quick-format-unescaped 4.0.4 — MIT (npm)
 
 ```text
@@ -14354,100 +13838,14 @@ SOFTWARE.
 
 ---
 
-- rc 1.2.8 — (BSD-2-Clause OR MIT OR Apache-2.0) (npm)
-
-```text
-Apache License, Version 2.0
-
-Copyright (c) 2011 Dominic Tarr
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
-
----
-
-- rc 1.2.8 — (BSD-2-Clause OR MIT OR Apache-2.0) (npm)
-
-```text
-Copyright (c) 2013, Dominic Tarr
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
-
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
-either expressed or implied, of the FreeBSD Project.
-```
-
----
-
-- rc 1.2.8 — (BSD-2-Clause OR MIT OR Apache-2.0) (npm)
-
-```text
-The MIT License
-
-Copyright (c) 2011 Dominic Tarr
-
-Permission is hereby granted, free of charge, 
-to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to 
-deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom 
-the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice 
-shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
----
-
-- react 18.3.1 — MIT (npm)
-- react-dom 18.3.1 — MIT (npm)
-- scheduler 0.23.2 — MIT (npm)
+- react 19.3.1 — MIT (npm)
+- react-dom 19.3.1 — MIT (npm)
+- scheduler 0.28.0 — MIT (npm)
 
 ```text
 MIT License
 
-Copyright (c) Facebook, Inc. and its affiliates.
+Copyright (c) Meta Platforms, Inc. and affiliates.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -14466,61 +13864,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
-
----
-
-- readable-stream 3.6.2 — MIT (npm)
-- string_decoder 1.3.0 — MIT (npm)
-
-```text
-Node.js is licensed for use as follows:
-
-"""
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-This license applies to parts of Node.js originating from the
-https://github.com/joyent/node repository:
-
-"""
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
 ```
 
 ---
@@ -14659,36 +14002,6 @@ IN THE SOFTWARE.
 
 ---
 
-- safe-buffer 5.2.1 — MIT (npm)
-- simple-concat 1.0.1 — MIT (npm)
-- simple-get 4.0.1 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) Feross Aboukhadijeh
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
 - safe-regex2 5.1.2 — MIT (npm)
 
 ```text
@@ -14765,6 +14078,28 @@ Redistribution and use in source and binary forms, with or without modification,
 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
+---
+
+- semver 7.8.6 — ISC (npm)
+
+```text
+The ISC License
+
+Copyright (c) Isaac Z. Schlueter and Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ```
 
 ---
@@ -14894,34 +14229,6 @@ THE SOFTWARE.
 
 ---
 
-- strip-json-comments 2.0.1 — MIT (npm)
-
-```text
-The MIT License (MIT)
-
-Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
----
-
 - style-mod 4.1.5 — MIT (npm)
 
 ```text
@@ -15004,69 +14311,7 @@ SOFTWARE.
 
 ---
 
-- tunnel-agent 0.6.0 — Apache-2.0 (npm)
-
-```text
-Apache License
-
-Version 2.0, January 2004
-
-http://www.apache.org/licenses/
-
-TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
-
-1. Definitions.
-
-"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
-
-"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
-
-"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.
-
-"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
-
-"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
-
-"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
-
-"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
-
-"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
-
-"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
-
-"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
-
-2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
-
-3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
-
-4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
-
-You must give any other recipients of the Work or Derivative Works a copy of this License; and
-
-You must cause any modified files to carry prominent notices stating that You changed the files; and
-
-You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
-
-If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License. You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
-
-5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
-
-6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
-
-7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
-
-8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
-
-9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
-
-END OF TERMS AND CONDITIONS
-```
-
----
-
-- undici 7.30.2 — MIT (npm)
+- undici 8.13.1 — MIT (npm)
 
 ```text
 MIT License
@@ -15090,37 +14335,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
-
----
-
-- util-deprecate 1.0.2 — MIT (npm)
-
-```text
-(The MIT License)
-
-Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ---

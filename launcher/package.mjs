@@ -29,7 +29,7 @@
  *       build-info.json
  *
  * Linux üzerinde Windows paketi üretilebilir: native modüllerin win32-x64 ön-derlemeleri npm/GitHub'dan
- * indirilir (better-sqlite3 için prebuild-install --platform/--arch, isolated-vm paketin kendi `prebuilds/`i),
+ * indirilir (ikisi de npm paketinin kendi `prebuilds/`inden; better-sqlite3 13'ten beri indirme yok),
  * node.exe nodejs.org'dan indirilip SHA-256'sı doğrulanır, SEA blob'u postject ile PE dosyasına
  * enjekte edilir. Hiçbir adım derleyici gerektirmez.
  *
@@ -364,17 +364,6 @@ function installNativeModules(resourcesDir, target) {
   run('npm', ['install', '--omit=dev', '--no-audit', '--no-fund', '--no-package-lock', '--ignore-scripts'], {
     cwd: resourcesDir,
   });
-  // better-sqlite3: GitHub release'inden hedef platformun ön-derlenmiş ikilisini indirir, derlemez
-  run(
-    process.execPath,
-    [
-      path.join(resourcesDir, 'node_modules/prebuild-install/bin.js'),
-      '--platform', target.nodePlatform,
-      '--arch', target.nodeArch,
-      '--verbose',
-    ],
-    { cwd: path.join(resourcesDir, 'node_modules/better-sqlite3') },
-  );
   // isolated-vm: ön-derlemeler npm paketinin prebuilds/ klasöründe gelir; node-gyp-build çalışma
   // zamanında build/Release yoksa oradan platform+ABI'ye göre seçer. build/ hiç oluşmamalı.
   const ivmBuild = path.join(resourcesDir, 'node_modules/isolated-vm/build');
@@ -382,8 +371,15 @@ function installNativeModules(resourcesDir, target) {
 
   // Doğrulama: doğru platformun ikilisi geldi mi?
   const abi = process.versions.modules;
-  const sqliteNode = path.join(resourcesDir, 'node_modules/better-sqlite3/build/Release/better_sqlite3.node');
+  // better-sqlite3 (13+): her platformun N-API ikilisi npm paketinde `prebuilds/<platform>-<arch>.node` olarak gelir,
+  // çalışma zamanında `process.platform`-`process.arch`'a göre seçilir; indirme yok. Diğer platformlarınki atılır (boyut).
+  const sqlitePrebuilds = path.join(resourcesDir, 'node_modules/better-sqlite3/prebuilds');
+  const sqliteName = `${target.nodePlatform}-${target.nodeArch}.node`;
+  const sqliteNode = path.join(sqlitePrebuilds, sqliteName);
   if (!existsSync(sqliteNode)) fail(`better-sqlite3 ikilisi yok: ${sqliteNode}`);
+  for (const f of readdirSync(sqlitePrebuilds)) {
+    if (f !== sqliteName) rmSync(path.join(sqlitePrebuilds, f), { recursive: true, force: true });
+  }
   const magic = readFileSync(sqliteNode).subarray(0, 4);
   const isPE = magic[0] === 0x4d && magic[1] === 0x5a; // "MZ"
   const isELF = magic[0] === 0x7f && magic[1] === 0x45; // "\x7fELF"
@@ -487,14 +483,13 @@ function printPlan(targetName, target, nodeVersion, args) {
     `  rust triple  : ${target.rustTriple}`,
     `  sidecar      : ${args.sidecarDir ? path.join(path.resolve(repoRoot, args.sidecarDir), 'binaries', `reqster-server-${target.rustTriple}${target.sidecarExt}`) : '(--sidecar-dir verilmedi)'}`,
     `  arşiv        : ${args.archive ? `dist/Reqster-${args.version}-${target.nodePlatform === 'win32' ? 'win' : target.nodePlatform}-${target.nodeArch}.${target.archive}` : '(--no-archive)'}`,
-    `  better-sqlite3 ${sqlite.version}: prebuild-install --platform ${target.nodePlatform} --arch ${target.nodeArch} → ` +
-      `https://github.com/WiseLibs/better-sqlite3/releases/download/v${sqlite.version}/better-sqlite3-v${sqlite.version}-node-v${abi}-${target.nodePlatform}-${target.nodeArch}.tar.gz`,
+    `  better-sqlite3 ${sqlite.version}: npm paketindeki prebuilds/${target.nodePlatform}-${target.nodeArch}.node`,
     `  isolated-vm ${ivm.version}: prebuilds/${target.prebuildDir} → ` +
       (ivmFound.length > 0 ? `VAR (${ivmFound.join(', ')})` : `YOK — paket akışı burada durur. ${ivmMissingMessage(target, abi)}`),
     '  adımlar:',
     `    1. ${args.skipAppBuild ? 'frontend build atlanır' : 'npm run build -w @reqster/app'}`,
     '    2. esbuild → resources/server.cjs, worker.cjs; migrations/ kopyası',
-    '    3. resources/ içine npm install --ignore-scripts; better-sqlite3 prebuild-install; isolated-vm ön-derleme seçimi',
+    '    3. resources/ içine npm install --ignore-scripts; better-sqlite3 ve isolated-vm ön-derleme seçimi',
     '    4. Node ikilisini indir + SHA-256 doğrula + arşivden çıkar',
     '    5. node --experimental-sea-config → sea-prep.blob',
     ...(darwin

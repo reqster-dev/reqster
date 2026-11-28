@@ -9,8 +9,7 @@ Nihai hedef: telemetrisiz/hesapsız/bulutsuz, tek SQLite dosyasında yaşayan, P
 koleksiyonlarını içe aktarabilen ve sonunda Tauri ile paketlenecek bir masaüstü API istemcisi.
 
 **Ad değişikliği (1.0.0-rc.20):** eski adı **Reqly**'ydi (başka projelerle çakıştı). Bilerek ESKİ adla kalanlar:
-uygulama kimliği `tr.talhacigdem.reqly` (updater zinciri + WebView2 önbelleği; veri klasörü rc.27'de kimlikten ayrıldı, aşağıda), eski site adresi `reqly.talhacigdem.tr` updater'da
-yedek endpoint olarak (adres 2026-11-24'te bilerek kapatıldı, artık çözülmüyor: rc.19 ve öncesi güncelleme göremez, elle yeni sürüm kurar; yedek satır `tauri.conf.json`'da ölü olarak duruyor), `reqly-wordmark.svg` (yeni wordmark çizilene kadar). Geri uyum: `REQLY_*` ortam değişkenleri
+uygulama kimliği `tr.talhacigdem.reqly` (updater zinciri + WebView2 önbelleği; veri klasörü rc.27'de kimlikten ayrıldı, aşağıda), `reqly-wordmark.svg` (yeni wordmark çizilene kadar). Eski site adresi `reqly.talhacigdem.tr` 2026-11-24'te bilerek kapatıldı: rc.19 ve öncesi güncelleme göremez, elle yeni sürüm kurar (updater'daki ölü yedek satır 1.1.0'dan sonra kaldırıldı). Geri uyum: `REQLY_*` ortam değişkenleri
 `server/src/envCompat.ts` (+ başlatıcıdaki eşi) ile `REQSTER_*`'a kopyalanır; `reqly.db` açılışta `reqster.db`'ye taşınır
 (`db/connection.ts`); `reqly-bundle` paketleri içe alınır (`shared` `isBundleFormat`); Windows kurulumu eski "Reqly" kaydını
 sessizce kaldırır, veri kalır (`src-tauri/windows/installer-hooks.nsh`). macOS'ta updater paketi yerinde değiştirdiği için `Reqly.app` adı kalıyordu: kabuk açılışta eski adlı paketten çalıştığını görürse onu `Reqster.app` yapıp `open -n` ile yeni yoldan yeniden açar (`src-tauri/src/bundle_name.rs`; App Translocation'da, hedef varsa ya da yazma izni yoksa yalnızca loglar). Kısaltma ve script API'si `rq.*` değişmedi.
@@ -60,8 +59,8 @@ npm run start             # tek port (7357): app'i build eder + server'ı statik
   **Uygulama içi güncelleme** (`src-tauri/src/update.rs`, `tauri-plugin-updater`): READY'de pencere hemen
   uygulamaya geçmez; açılış ekranı (`src-tauri/ui/index.html`, durum satırı `window.__reqsterStatus`, kabuk `webview.eval`
   ile yazar) "Güncellemeler denetleniyor" gösterirken görev `GET /api/settings` (`network.verify_tls`) ve
-  `GET /api/internal/proxy-url` (aktif proxy, yoksa doğrudan) okur, `https://reqster.talhacigdem.tr/updates/latest.json`'u
-  (erişilemezse yapılandırmadaki eski `reqly.talhacigdem.tr`'yi dener; o adres 2026-11-24'te kapatıldı, yani fiilen tek endpoint) denetler. En fazla
+  `GET /api/internal/proxy-url` (aktif proxy, yoksa doğrudan) okur, `https://reqster.dev/updates/latest.json`'u
+  (erişilemezse önceki adres `reqster.talhacigdem.tr`'yi dener; o adres de `reqster.dev`'e yönlenir, 1.1.0 ve öncesi yalnızca onu bilir) denetler. En fazla
   `STARTUP_CHECK_BUDGET` (5 sn) beklenir; dolunca uygulama açılır, denetim arka planda biter. Güncelleme yoksa açılış
   ekranı kabuk başladığından beri en az `MIN_SPLASH` (1,2 sn) görünür ve son anda "Güncel" yazar (bir an görünüp kaybolmasın). Yeni sürümde diyalog açılış
   ekranındayken "Şimdi kur / Sonra"; seçilmeden uygulama açılmaz. **Zorunlu güncelleme:** manifestin üst düzeyindeki
@@ -129,7 +128,9 @@ npm run start             # tek port (7357): app'i build eder + server'ı statik
   (temiz ağaç ve `main` zorunlu; `--no-push` ile yalnızca yerel; `npm version` bilerek kullanılmaz, bkz. betik).
 - **Docker / public site**: `deploy/Dockerfile` Linux paketini headless imaja koyar (container'da
   `REQSTER_HOST=0.0.0.0`, `REQSTER_AUTH=off`, veri `/data`; önüne kimlik doğrulayan bir kapı gerekir, README). İndirme ve
-  updater sitesi (`reqster.talhacigdem.tr`; eski `reqly.talhacigdem.tr` 2026-11-24'te kapatıldı) bu depoda değildir; GitHub Release'lerinden beslenir. Bakımcı notları
+  updater sitesi (`reqster.dev`; önceki `reqster.talhacigdem.tr` oraya yönlenir) bu depoda değildir; GitHub Release'lerinden beslenir: sürüm, dosya adları,
+  imzalar, güncelleme notu ve `minimumVersion` son Release'teki `site-manifest.json`'dan okunur (`deploy/site-manifest.mjs`; `site-manifest.yml` release / release-notes
+  iş akışları bitince, Release elle düzenlenince ve üretici değişince yeniden üretir). Site yalnızca GitHub'ın "latest" saydığı (kararlı) Release'i görür. Bakımcı notları
   (yerelde varsa): @../reqster-site/CLAUDE.md
 - Test altyapısı henüz yok. Doğrulama şu ana kadar `typecheck` + çalışan servera karşı curl ile
   uçtan uca API smoke testiyle yapılıyor (koleksiyon oluştur → değişken tanımla → execute → history kontrolü).

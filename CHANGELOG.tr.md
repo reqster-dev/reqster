@@ -7,6 +7,9 @@ penceresinde de gösterilir (ilk 300 karakter); en önemli madde başa yazılır
 
 ## [Unreleased]
 
+### Değişti
+- Site, indirmeler ve güncelleme denetimi **reqster.dev** adresine taşındı. Eski adres oraya yönlenir; kurulu sürümler güncellenmeye devam eder.
+
 ## [1.1.0] - 2026-11-26
 
 ### Eklendi

@@ -49,8 +49,8 @@
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEI5MzMzMTc2NjFGQTU1OUIKUldTYlZmcGhkakV6dVR6UitxeDV5VXRBazFqQ01hWTFyWlZqTXBqRnlHTXhXVDNzRjR2Y3d0bHMK",
       "requireSignedVersion": true,
       "endpoints": [
-        "https://reqster.talhacigdem.tr/updates/latest.json",
-        "https://reqly.talhacigdem.tr/updates/latest.json"
+        "https://reqster.dev/updates/latest.json",
+        "https://reqster.talhacigdem.tr/updates/latest.json"
       ],
       "windows": {
         "installMode": "quiet"

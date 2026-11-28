@@ -6,7 +6,7 @@ Hesap yok, bulut yok, telemetri yok: koleksiyonlarınız, ortamlarınız ve geç
 *Reqster = request + tester.* Eski adı **Reqly**: mevcut kurulumlar yerinde güncellenir, `.reqly.json` paketleri içe
 alınmaya ve `REQLY_*` ortam değişkenleri çalışmaya devam eder.
 
-[English](README.md) · [İndir](https://reqster.talhacigdem.tr/download/latest/) · [Tasarım notları](TASARIM.md)
+[English](README.md) · [İndir](https://reqster.dev/download/latest/) · [Tasarım notları](TASARIM.md)
 
 ## Özellikler
 
@@ -26,7 +26,7 @@ alınmaya ve `REQLY_*` ortam değişkenleri çalışmaya devam eder.
 
 ## Kurulum
 
-Son sürümü [indirme sayfasından](https://reqster.talhacigdem.tr/download/latest/) ya da
+Son sürümü [indirme sayfasından](https://reqster.dev/download/latest/) ya da
 [GitHub Releases](https://github.com/reqster-dev/reqster/releases)'tan indirin.
 
 | Platform | Dosya | Not |

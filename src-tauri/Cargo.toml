@@ -9,7 +9,7 @@ description = "Tamamen yerel çalışan, hafif ve veri gizliliği odaklı API is
 edition = "2021"
 license = "Apache-2.0"
 repository = "https://github.com/reqster-dev/reqster"
-homepage = "https://reqly.talhacigdem.tr"
+homepage = "https://reqster.dev"
 # tauri-plugin-updater 2.14 en az 1.90 ister.
 rust-version = "1.90"
 publish = false

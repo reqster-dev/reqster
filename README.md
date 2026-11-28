@@ -6,7 +6,7 @@ No account, no cloud, no telemetry: your collections, environments and history s
 *Reqster = request + tester.* Formerly **Reqly**: existing installs update in place, `.reqly.json` bundles still import
 and `REQLY_*` environment variables keep working.
 
-[Türkçe](README.tr.md) · [Download](https://reqster.talhacigdem.tr/download/latest/) · [Design notes (TR)](TASARIM.md)
+[Türkçe](README.tr.md) · [Download](https://reqster.dev/download/latest/) · [Design notes (TR)](TASARIM.md)
 
 ## Features
 
@@ -27,7 +27,7 @@ and `REQLY_*` environment variables keep working.
 
 ## Install
 
-Download the latest release from the [download page](https://reqster.talhacigdem.tr/download/latest/) or from
+Download the latest release from the [download page](https://reqster.dev/download/latest/) or from
 [GitHub Releases](https://github.com/reqster-dev/reqster/releases).
 
 | Platform | File | Notes |

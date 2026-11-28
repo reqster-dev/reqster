@@ -6,6 +6,9 @@ dependency updates the patch version. Türkçesi: [CHANGELOG.tr.md](CHANGELOG.tr
 
 ## [Unreleased]
 
+### Changed
+- The website, downloads and the update check moved to **reqster.dev**. The previous address redirects there, so existing installs keep updating.
+
 ## [1.1.0] - 2026-11-26
 
 ### Added

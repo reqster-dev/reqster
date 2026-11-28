@@ -161,7 +161,7 @@ function SettingsForm() {
       )}
       <p className="hint">
         {t('settings.updates.hintBefore')}
-        <code>reqster.talhacigdem.tr/updates</code>
+        <code>reqster.dev/updates</code>
         {t('settings.updates.hintAfter')}
       </p>
       {error && <p className="hint warn">{error}</p>}

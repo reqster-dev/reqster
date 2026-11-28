@@ -7,6 +7,8 @@ penceresinde de gösterilir (ilk 300 karakter); en önemli madde başa yazılır
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-11-28
+
 ### Değişti
 - Site, indirmeler ve güncelleme denetimi **reqster.dev** adresine taşındı. Eski adres oraya yönlenir; kurulu sürümler güncellenmeye devam eder.
 

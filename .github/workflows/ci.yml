@@ -41,7 +41,8 @@ jobs:
         run: node launcher/smoke.mjs dist/package/linux-x64/Reqster/reqster
 
   dco:
-    if: github.event_name == 'pull_request'
+    # Dependabot signs off with a different address than its author identity; a bot cannot certify the DCO anyway.
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

@@ -7,6 +7,9 @@ penceresinde de gösterilir (ilk 300 karakter); en önemli madde başa yazılır
 
 ## [Unreleased]
 
+### Düzeltildi
+- Uygulama adına gelen ekler okunuşa göre düzeltildi ("Reqster'ı").
+
 ## [1.1.1] - 2026-11-28
 
 ### Değişti

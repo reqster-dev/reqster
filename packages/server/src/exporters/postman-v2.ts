@@ -22,7 +22,7 @@ import { appVersion } from '../paths.js';
 /**
  * Postman Collection v2.1 dışa aktarımı — `importers/postman-v2.ts`'nin tersi (TASARIM.md §6.2 eşlemesi,
  * simetri kuralı §6.4). Hedef: import → export → import döngüsü kayıpsız olsun. Yalnızca Postman'ın
- * tanıdığı alanlar üretilir; Reqster'ye özgü hiçbir ek alan gerekmedi (Reqster veri modeli v2.1'in alt kümesi).
+ * tanıdığı alanlar üretilir; Reqster'a özgü hiçbir ek alan gerekmedi (Reqster veri modeli v2.1'in alt kümesi).
  * `includeSecrets=false` → secret değişkenler anahtarı ve `type: "secret"` ile ama boş değerle gider.
  */
 
@@ -218,7 +218,7 @@ function queryString(params: PmExportKeyValue[]): string {
 }
 
 /**
- * Reqster'nin düz URL'i + params → Postman'ın yapılandırılmış `url` nesnesi. `raw` esastır (importer onu
+ * Reqster'ın düz URL'i + params → Postman'ın yapılandırılmış `url` nesnesi. `raw` esastır (importer onu
  * okur); protocol/host/port/path Postman'ın UI'ı için en iyi çabayla ayrıştırılır, `{{var}}` parçaları
  * olduğu gibi kalır (Postman da `{{baseUrl}}`'i host olarak yazar).
  */

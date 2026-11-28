@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Reqster'yi tek klasörlük, bağımsız bir dağıtım olarak paketler.
+ * Reqster'ı tek klasörlük, bağımsız bir dağıtım olarak paketler.
  *
  *   node launcher/package.mjs --target win-x64            → dist/Reqster-<sürüm>-win-x64.zip
  *   node launcher/package.mjs --target linux-x64          → dist/Reqster-<sürüm>-linux-x64.tar.gz

@@ -6,6 +6,9 @@ dependency updates the patch version. Türkçesi: [CHANGELOG.tr.md](CHANGELOG.tr
 
 ## [Unreleased]
 
+### Fixed
+- Turkish wording: the suffixes after the app name follow its pronunciation ("Reqster'ı").
+
 ## [1.1.1] - 2026-11-28
 
 ### Changed

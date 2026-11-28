@@ -179,7 +179,7 @@ export interface CodeEditorProps {
 /**
  * CodeMirror 6 tabanlı hafif kod editörü: satır numaraları, sözdizimi vurgusu
  * (JSON/XML/JavaScript), katlama, parantez eşleştirme — `basicSetup` üzerinden.
- * Reqster'ye özgü `{{var}}` vurgulaması ayrı bir ViewPlugin ile eklenir.
+ * Reqster'a özgü `{{var}}` vurgulaması ayrı bir ViewPlugin ile eklenir.
  */
 export function CodeEditor({
   value,

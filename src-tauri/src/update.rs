@@ -411,7 +411,7 @@ async fn install(app: &AppHandle, update: Update) {
                 .try_state::<Sidecar>()
                 .is_some_and(|s| s.closing.load(Ordering::SeqCst));
             let tail = if sidecar_gone {
-                "Yerel sunucu kapatıldı; lütfen Reqster'yi kapatıp yeniden açın."
+                "Yerel sunucu kapatıldı; lütfen Reqster'ı kapatıp yeniden açın."
             } else {
                 "Uygulama çalışmaya devam ediyor."
             };

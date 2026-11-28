@@ -401,7 +401,7 @@ Tamamlananlar — Faz 1 + arayüz geliştirmeleri + Faz 2'nin script sandbox çe
   `db.transaction` — iç importer transaction'ları savepoint'e dönüşür, bir parça bozuksa hiçbir şey yazılmaz
   `import.bundleFailed`), `secretsIncluded=false` ise `import.bundleSecretsEmpty` uyarısı (adlar listelenir);
   `POST /api/import/postman` gövdesi `format: "reqster-bundle"` ise aynı yola yönlenir. Round-trip (import → export →
-  import → export birebir) ve `postman-collection` SDK parse'ı uçtan uca doğrulandı. Reqster'ye özgü ek alan üretilmez.
+  import → export birebir) ve `postman-collection` SDK parse'ı uçtan uca doğrulandı. Reqster'a özgü ek alan üretilmez.
 - **cURL kopyala / yapıştır** (2026-11-15): `importers/curl.ts` bash (`\\` devamı, `'…'`, `"…"`, `$'…'`) ve
   Windows cmd (`^` kaçışı/devamı + MSVCRT argüman kuralları; Chrome "Copy as cURL (cmd)") sözdizimini otomatik algılar;
   `Authorization` başlığı auth'a, query params'a taşınır; tanınmayan/aktarılamayan bayraklar `warnings`'e. `exporters/curl.ts`

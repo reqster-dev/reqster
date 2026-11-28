@@ -637,7 +637,7 @@ port/path/query`, `{{var}}` parçaları olduğu gibi) hem `raw` (yalnızca etkin
 `query[]`'ye taşınır), `header[]`/`query[]`/`urlencoded[]` yalnızca kapalıyken `disabled: true`, raw body
 `options.raw.language` içerik tipinden (json/xml/html/javascript/text), form-data yalnızca `type: "text"`, auth
 `null` (devral) → alan yok, `none` → `noauth`, script'ler `event[]` (`exec` satır dizisi). Postman'ın tanımadığı hiçbir
-alan üretilmez; Reqster'ye özgü meta gerekmedi. **Secret kuralı:** varsayılan dışa aktarımda secret değişkenler
+alan üretilmez; Reqster'a özgü meta gerekmedi. **Secret kuralı:** varsayılan dışa aktarımda secret değişkenler
 anahtarı ve `type: "secret"` ile ama **boş değerle** çıkar; değer yalnızca kullanıcı açıkça isterse (`secrets=1`,
 `includeSecrets=true`) yazılır. İçe alan taraf `type: "secret"`i `is_secret=1` yapar ve boş gelen secret'ları raporda
 adlarıyla uyarır. **Paylaşım paketi (`.reqster.json`, `ReqsterBundle`):** birden çok koleksiyon (v2.1 belgeleri olduğu

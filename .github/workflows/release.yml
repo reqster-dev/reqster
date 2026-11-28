@@ -22,7 +22,7 @@ jobs:
       version: ${{ steps.v.outputs.version }}
       app_version: ${{ steps.v.outputs.app_version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       # version: sidecar build info (tag version, or 0.0.0-dev.<sha7> for manual runs).
       # app_version: Tauri / NSIS version — NSIS needs x.y.z(-pre), so manual runs use package.json's version.
       - id: v
@@ -42,8 +42,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -52,7 +52,7 @@ jobs:
       - run: node launcher/package.mjs --target linux-x64 --version "${{ needs.meta.outputs.version }}"
       # The released tar.gz is the exact file that passed the smoke test.
       - run: node launcher/smoke.mjs dist/package/linux-x64/Reqster/reqster
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: linux
           path: dist/*.tar.gz
@@ -68,12 +68,12 @@ jobs:
     env:
       APP_VERSION: ${{ needs.meta.outputs.app_version }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
           cache: npm
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
         with:
           workspaces: src-tauri
       - run: npm ci --no-audit --no-fund
@@ -117,7 +117,7 @@ jobs:
           f="$RUNNER_TEMP/ci.log"; [[ -f "$f" ]] || exit 0
           msg=$(tail -n 60 "$f" | sed -e 's/%/%25/g' | tr -d '\r' | awk '{printf "%s%%0A", $0}')
           echo "::error title=last log lines::${msg}"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: windows
           path: |
@@ -134,13 +134,13 @@ jobs:
       APP_VERSION: ${{ needs.meta.outputs.app_version }}
       VERSION: ${{ needs.meta.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
         with:
           workspaces: src-tauri
       - run: npm ci --no-audit --no-fund
@@ -202,7 +202,7 @@ jobs:
           f="$RUNNER_TEMP/ci.log"; [[ -f "$f" ]] || exit 0
           msg=$(tail -n 60 "$f" | sed -e 's/%/%25/g' | tr -d '\r' | awk '{printf "%s%%0A", $0}')
           echo "::error title=last log lines::${msg}"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: macos
           path: |
@@ -222,8 +222,8 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       V: ${{ needs.meta.outputs.app_version }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           path: dist
           merge-multiple: true

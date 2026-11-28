@@ -130,8 +130,7 @@ npm run start             # tek port (7357): app'i build eder + server'ı statik
   `REQSTER_HOST=0.0.0.0`, `REQSTER_AUTH=off`, veri `/data`; önüne kimlik doğrulayan bir kapı gerekir, README). İndirme ve
   updater sitesi (`reqster.dev`; önceki `reqster.talhacigdem.tr` oraya yönlenir) bu depoda değildir; GitHub Release'lerinden beslenir: sürüm, dosya adları,
   imzalar, güncelleme notu ve `minimumVersion` son Release'teki `site-manifest.json`'dan okunur (`deploy/site-manifest.mjs`; `site-manifest.yml` release / release-notes
-  iş akışları bitince, Release elle düzenlenince ve üretici değişince yeniden üretir). Site yalnızca GitHub'ın "latest" saydığı (kararlı) Release'i görür. Bakımcı notları
-  (yerelde varsa): @../reqster-site/CLAUDE.md
+  iş akışları bitince, Release elle düzenlenince ve üretici değişince yeniden üretir). Site yalnızca GitHub'ın "latest" saydığı (kararlı) Release'i görür.
 - Test altyapısı henüz yok. Doğrulama şu ana kadar `typecheck` + çalışan servera karşı curl ile
   uçtan uca API smoke testiyle yapılıyor (koleksiyon oluştur → değişken tanımla → execute → history kontrolü).
 - Veri `data/reqster.db` dosyasında (gitignore'da); `REQSTER_DATA_DIR` ile taşınabilir.
@@ -244,7 +243,7 @@ history'ye **snapshot** yazımı (secret değerler `«masked»` ile maskelenir) 
   tutarlı boyut; font yerel "Inter var" (`public/fonts/`, OFL), uzak font yok. Üst bardaki açılır menüler ortak
   `components/DropdownMenu.tsx` (klavye + aria) üzerinden.
   **Marka varlıkları**: kaynak SVG'ler `packages/app/src/assets/brand/` (`reqster-mark.svg`,
-  `reqster-mark-bold.svg` = aynı path + ~%3 kontur, 16–24 px için; `reqly-wordmark.svg`; birebir kopyaları reqly-site deposunun `site/assets/`'ında),
+  `reqster-mark-bold.svg` = aynı path + ~%3 kontur, 16–24 px için; `reqly-wordmark.svg`; sitedeki kopyalar bunlarla birebir aynı tutulur),
   hepsi `fill="currentColor"` tek `evenodd` path, sabit renk yok — renk `--accent`'ten gelir. Üst bar
   `components/ReqsterMark.tsx` (path verisi bold SVG ile aynı; SVG değişirse bileşen de güncellenir). Favicon
   `public/favicon.svg` (kırmızı rx %22 kare + beyaz bold işaret); masaüstü ikonları ondan render edilen 1024 PNG ile

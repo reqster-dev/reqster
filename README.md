@@ -1,5 +1,9 @@
 # Reqster
 
+[![ci](https://github.com/reqster-dev/reqster/actions/workflows/ci.yml/badge.svg)](https://github.com/reqster-dev/reqster/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/reqster-dev/reqster)](https://github.com/reqster-dev/reqster/releases/latest)
+[![license](https://img.shields.io/github/license/reqster-dev/reqster)](LICENSE)
+
 A lightweight, local-first API client — a privacy-focused Postman alternative.
 No account, no cloud, no telemetry: your collections, environments and history stay on your machine.
 
@@ -7,6 +11,8 @@ No account, no cloud, no telemetry: your collections, environments and history s
 and `REQLY_*` environment variables keep working.
 
 [Türkçe](README.tr.md) · [Download](https://reqster.dev/download/latest/) · [Design notes (TR)](TASARIM.md)
+
+![Reqster: a request with a JSON body, its response and test results](docs/screenshot.png)
 
 ## Features
 
@@ -37,6 +43,10 @@ Download the latest release from the [download page](https://reqster.dev/downloa
 | Windows (portable) | `Reqster_<version>_x64-portable.zip` | No installation: unzip and run `Reqster\reqster.exe` (WebView2 must be present, as on Windows 10/11) |
 | macOS | `Reqster_<version>_aarch64.dmg` / `Reqster_<version>_x64.dmg` | Apple Silicon / Intel. Builds are not notarized yet: on first launch use System Settings → Privacy & Security → "Open Anyway" |
 | Linux | `Reqster-<version>-linux-x64.tar.gz` | Runs the server; open `http://127.0.0.1:7357` in a browser |
+
+The installers are not code-signed yet, so the operating system warns once on first run. On Windows, SmartScreen shows
+"Windows protected your PC": choose **More info → Run anyway**. On macOS use **Open Anyway** as described above. In-app
+updates are verified against the project's own signing key regardless.
 
 Data lives in a single SQLite file: `%APPDATA%\Reqster\reqster.db` on Windows,
 `~/Library/Application Support/Reqster/reqster.db` on macOS, `data/reqster.db` (or `REQSTER_DATA_DIR`)

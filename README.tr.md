@@ -1,5 +1,9 @@
 # Reqster
 
+[![ci](https://github.com/reqster-dev/reqster/actions/workflows/ci.yml/badge.svg)](https://github.com/reqster-dev/reqster/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/reqster-dev/reqster)](https://github.com/reqster-dev/reqster/releases/latest)
+[![license](https://img.shields.io/github/license/reqster-dev/reqster)](LICENSE)
+
 Tamamen yerel çalışan, hafif ve veri gizliliği odaklı bir API istemcisi (Postman alternatifi).
 Hesap yok, bulut yok, telemetri yok: koleksiyonlarınız, ortamlarınız ve geçmişiniz makinenizde kalır.
 
@@ -7,6 +11,8 @@ Hesap yok, bulut yok, telemetri yok: koleksiyonlarınız, ortamlarınız ve geç
 alınmaya ve `REQLY_*` ortam değişkenleri çalışmaya devam eder.
 
 [English](README.md) · [İndir](https://reqster.dev/download/latest/) · [Tasarım notları](TASARIM.md)
+
+![Reqster: JSON gövdeli bir istek, yanıtı ve test sonuçları](docs/screenshot.png)
 
 ## Özellikler
 
@@ -36,6 +42,10 @@ Son sürümü [indirme sayfasından](https://reqster.dev/download/latest/) ya da
 | Windows (taşınabilir) | `Reqster_<sürüm>_x64-portable.zip` | Kurulum yok: açıp `Reqster\reqster.exe`'yi çalıştırın (Windows 10/11'deki gibi WebView2 kurulu olmalı) |
 | macOS | `Reqster_<sürüm>_aarch64.dmg` / `Reqster_<sürüm>_x64.dmg` | Apple Silicon / Intel. Paketler henüz notarize değil: ilk açılışta Sistem Ayarları → Gizlilik ve Güvenlik → "Yine de Aç" |
 | Linux | `Reqster-<sürüm>-linux-x64.tar.gz` | Sunucuyu çalıştırır; tarayıcıda `http://127.0.0.1:7357` |
+
+Kurulum dosyaları henüz kod imzalı değildir; işletim sistemi ilk çalıştırmada bir kez uyarır. Windows'ta SmartScreen
+"Windows kişisel bilgisayarınızı korudu" der: **Ek bilgi → Yine de çalıştır**. macOS'ta yukarıdaki **Yine de Aç** adımı.
+Uygulama içi güncellemeler bundan bağımsız olarak projenin kendi imza anahtarıyla doğrulanır.
 
 Veri tek bir SQLite dosyasındadır: Windows'ta `%APPDATA%\Reqster\reqster.db`, macOS'ta
 `~/Library/Application Support/Reqster/reqster.db`, diğer durumlarda `data/reqster.db` (ya da

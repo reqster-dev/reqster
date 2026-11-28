@@ -13,3 +13,4 @@ src-tauri/resources/
 src-tauri/gen/
 # Claude Code kişisel ayarları
 .claude/settings.local.json
+CLAUDE.local.md

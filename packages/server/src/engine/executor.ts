@@ -100,6 +100,7 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
     },
     undefined,
     { workspaceId: workspace.id, collectionId: input.collectionId, requestId: input.requestId },
+    signal,
   );
   const preScriptMs = hasScript(preSteps) ? now() - preStart : null;
   scriptLogs.push(...preOutcome.logs);
@@ -130,8 +131,8 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
     );
   }
 
-  // Pre-request script sürerken iptal edildiyse istek hiç gönderilmez
-  if (signal?.aborted) {
+  // Pre-request script sürerken iptal edildiyse (script durdurulur) istek hiç gönderilmez
+  if (signal?.aborted || preOutcome.cancelled) {
     return failResult(msg('execute.cancelled'), input, input.url, new Set(), scriptLogs, testResults, earlyTimings());
   }
 
@@ -363,11 +364,14 @@ export async function executeRequest(input: ExecuteInput, signal?: AbortSignal):
       liveRequest,
       { status: status ?? null, headers: responseHeaders, body: responseBody, durationMs },
       { workspaceId: workspace.id, collectionId: input.collectionId, requestId: input.requestId },
+      signal,
     );
     if (hasScript(postSteps)) postScriptMs = now() - postStart;
     scriptLogs.push(...postOutcome.logs);
     testResults.push(...postOutcome.tests);
-    if (postOutcome.fatalError) {
+    if (postOutcome.cancelled) {
+      scriptLogs.push({ level: 'warn', source: 'Post-response', message: msg('execute.cancelled') });
+    } else if (postOutcome.fatalError) {
       scriptLogs.push({ level: 'error', source: 'Post-response', message: postOutcome.fatalError });
     }
   }

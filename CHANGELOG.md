@@ -7,6 +7,7 @@ dependency updates the patch version. Türkçesi: [CHANGELOG.tr.md](CHANGELOG.tr
 ## [Unreleased]
 
 ### Changed
+- Cancelling a request now also stops a script that is still running; the next request no longer waits for it to finish.
 - The application identifier is now `dev.reqster.desktop` (was `tr.talhacigdem.reqly`). Your data and updates are unaffected; the old identifier's WebView cache is removed on first start.
 
 ### Fixed

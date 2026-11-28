@@ -5,9 +5,10 @@ import { getRequest } from '../db/repositories/requests.js';
 import { getSetting } from '../db/repositories/settings.js';
 import { deleteVariableByKey, upsertVariable, variableMap } from '../db/repositories/variables.js';
 import { currentLang, msg, runWithLang } from '../i18n/context.js';
-import { runScript } from '../scripting/host.js';
+import { runScript, ScriptCancelledError } from '../scripting/host.js';
 import { sendScriptHttpRequest } from './scriptHttp.js';
 import type {
+  RunScriptResponse,
   ScriptPhase,
   ScriptRequestSnapshot,
   ScriptResponseSnapshot,
@@ -27,6 +28,8 @@ export interface ScriptChainOutcome {
   tests: ScriptTestResult[];
   /** Zinciri kesen bir script hatası varsa (yalnızca pre-request'te isteği durdurur) */
   fatalError?: string;
+  /** Kullanıcı iptal etti: çalışan script durduruldu, kalan adımlar atlandı */
+  cancelled?: boolean;
 }
 
 function buildVariableSnapshot(
@@ -84,6 +87,7 @@ export async function runScriptChain(
   requestSnapshot: ScriptRequestSnapshot,
   responseSnapshot: ScriptResponseSnapshot | undefined,
   ctx: { workspaceId: string; collectionId?: string; requestId?: string },
+  signal?: AbortSignal,
 ): Promise<ScriptChainOutcome> {
   const logs: ScriptLogEntry[] = [];
   const tests: ScriptTestResult[] = [];
@@ -96,29 +100,37 @@ export async function runScriptChain(
 
   for (const step of steps) {
     if (!step.script || step.script.trim() === '') continue;
+    if (signal?.aborted) return { requestSnapshot: liveRequest, logs, tests, cancelled: true };
 
     const activeEnv = getActiveEnvironment(ctx.workspaceId);
     const variables = buildVariableSnapshot(ctx.workspaceId, ctx.collectionId, activeEnv?.id);
 
-    const result = await runScript(
-      {
-        id: newId(),
-        script: step.script,
-        phase,
-        timeoutMs: getSetting('script.timeout_ms'),
-        memoryLimitMb: getSetting('script.memory_limit_mb'),
-        consoleMaxBytes: getSetting('script.console_max_bytes'),
-        variables,
-        request: liveRequest,
-        response: responseSnapshot,
-        environmentName: activeEnv?.name,
-        requestName: savedRequest?.name ?? '',
-        requestId: savedRequest?.id,
-        language: lang,
-      },
-      // rq.sendRequest: isolate → worker → host; isteği yalnızca host (undici) yapar
-      { onSendRequest: (request, opts) => runWithLang(lang, () => sendScriptHttpRequest(request, opts)) },
-    );
+    let result: RunScriptResponse;
+    try {
+      result = await runScript(
+        {
+          id: newId(),
+          script: step.script,
+          phase,
+          timeoutMs: getSetting('script.timeout_ms'),
+          memoryLimitMb: getSetting('script.memory_limit_mb'),
+          consoleMaxBytes: getSetting('script.console_max_bytes'),
+          variables,
+          request: liveRequest,
+          response: responseSnapshot,
+          environmentName: activeEnv?.name,
+          requestName: savedRequest?.name ?? '',
+          requestId: savedRequest?.id,
+          language: lang,
+        },
+        // rq.sendRequest: isolate → worker → host; isteği yalnızca host (undici) yapar
+        { onSendRequest: (request, opts) => runWithLang(lang, () => sendScriptHttpRequest(request, opts)) },
+        signal,
+      );
+    } catch (err) {
+      if (err instanceof ScriptCancelledError) return { requestSnapshot: liveRequest, logs, tests, cancelled: true };
+      throw err;
+    }
 
     logs.push(...result.logs.map((l) => ({ ...l, source: step.source })));
     tests.push(...result.tests.map((t) => ({ ...t, source: step.source })));

@@ -444,7 +444,7 @@ connector'a değil isteğin `AsyncLocalStorage` bağlamına bağlanır (`withPro
   dosya türü anahtardan korunur); sekmeler **sürükle-bırak** ile sıralanır (`moveTab`; masaüstünde `dragDropEnabled: false`, yoksa
   WebView2 HTML5 sürüklemeyi yutar); gönderim sürerken yanıt panelinde ilerleme çubuğu + canlı sayaç ve **İptal** (UI `fetch`'i
   `AbortController` ile keser, `execute.routes.ts` yanıt bağlantısı kapanınca executor'a `signal` geçirir, undici isteği
-  iptal olur, history'ye `execute.cancelled`); raw türlerine `text/xml`.
+  iptal olur, history'ye `execute.cancelled`; o sırada script çalışıyorsa `runScript`'e geçen aynı `signal` worker'ı öldürür (`ScriptCancelledError`, zincirin kalanı atlanır, o adımın logları kaybolur) ve `discardWorker` referansı hemen bırakır ki sıradaki çalıştırma ölmekte olan sürece gitmesin); raw türlerine `text/xml`.
 - **form-data dosya alanı** (2026-11-20): `KeyValueItem.type: 'file'`, değer yerel dosya yolu; gönderimde diskten bellekle okunur
   (streaming yok), history'ye içerik değil `<ad: N B>` yazılır; Postman dışa aktarımı `type: file` + `src`, cURL `--form k=@yol`;
   Postman içe aktarımı dosya alanlarını hâlâ atlar (raporlar). **Güvenlik kuralı:** dosya alanı yalnızca kullanıcının gönderdiği

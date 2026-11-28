@@ -20,6 +20,7 @@ use tauri_plugin_shell::ShellExt;
 mod bundle_name;
 mod download;
 mod logging;
+mod old_identifier;
 mod picker;
 mod update;
 
@@ -89,6 +90,8 @@ pub fn run() {
                 std::process::exit(0);
             }
 
+            old_identifier::remove_stale_cache(app.handle());
+
             // Ana pencere config'te `create: false`; indirme olayını yakalamak için (dışa aktarmada
             // "Farklı kaydet") builder ile burada kurulur
             let window_config = app
@@ -134,7 +137,7 @@ pub fn run() {
 
 /// Kullanıcı verisinin (veritabanı, loglar) klasörü: Windows `%APPDATA%\Reqster`, macOS
 /// `~/Library/Application Support/Reqster`, Linux `~/.local/share/Reqster`. Uygulama kimliğinden
-/// (`app_data_dir`) bilerek bağımsızdır: kimlik eski adı taşır ve updater zinciri için değişmez.
+/// (`app_data_dir`) bilerek bağımsızdır; kimlik değişse de veri yerinde kalır.
 fn user_data_dir(app: &AppHandle) -> tauri::Result<PathBuf> {
     Ok(app.path().data_dir()?.join("Reqster"))
 }

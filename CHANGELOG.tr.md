@@ -7,6 +7,9 @@ penceresinde de gösterilir (ilk 300 karakter); en önemli madde başa yazılır
 
 ## [Unreleased]
 
+### Değişti
+- Uygulama kimliği `dev.reqster.desktop` oldu (eskisi `tr.talhacigdem.reqly`). Veriniz ve güncellemeler etkilenmez; eski kimliğin WebView önbelleği ilk açılışta silinir.
+
 ### Düzeltildi
 - Uygulama adına gelen ekler okunuşa göre düzeltildi ("Reqster'ı").
 

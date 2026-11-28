@@ -6,6 +6,9 @@ dependency updates the patch version. Türkçesi: [CHANGELOG.tr.md](CHANGELOG.tr
 
 ## [Unreleased]
 
+### Changed
+- The application identifier is now `dev.reqster.desktop` (was `tr.talhacigdem.reqly`). Your data and updates are unaffected; the old identifier's WebView cache is removed on first start.
+
 ### Fixed
 - Turkish wording: the suffixes after the app name follow its pronunciation ("Reqster'ı").
 

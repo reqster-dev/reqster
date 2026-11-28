@@ -1,7 +1,6 @@
 ; Reqster NSIS kurulum kancaları (tauri.windows.conf.json > bundle.windows.nsis.installerHooks).
 
-; Uygulamanın eski adı Reqly'ydi. Uygulama kimliği (tr.talhacigdem.reqly) değişmediği için güncelleme
-; zinciri aynıdır, ama kurulum klasörü, kısayollar ve kaldırma kaydı ürün adına bağlıdır:
+; Uygulamanın eski adı Reqly'ydi. Kurulum klasörü, kısayollar ve kaldırma kaydı ürün adına bağlıdır:
 ; Reqster yeni bir klasöre kurulur, eski "Reqly" kaydı yanında kalırdı. Kurulum bitince eski kopya,
 ; kendi kaldırıcısıyla sessiz (/S) kaldırılır. Sessiz kaldırma "uygulama verisini sil" seçeneğini
 ; işaretlemez; kullanıcı verisine (%APPDATA%\Reqster, rc.26 ve öncesinde %APPDATA%\tr.talhacigdem.reqly) dokunulmaz.
